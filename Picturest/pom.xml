@@ -75,7 +75,7 @@
         <version>0.30</version>
     	</dependency>
     
-    <!-- BOOTSTRAP DEPENDENCIES -->
+    <!-- BOOTSTRAP DEPENDENCIES ARE WORKING -->
     	<dependency>
         <groupId>org.webjars</groupId>
         <artifactId>bootstrap</artifactId>
