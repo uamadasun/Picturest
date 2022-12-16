@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome Page 1</title>
+<title>Welcome Page 2</title>
 </head>
 <body>
     <h1>Welcome Page <c:out value="${currentUser.firstName}"></c:out></h1>
