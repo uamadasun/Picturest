@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+
+/* Global Text Size */
+
+.title-text{
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+
+/* Global Text Color */
+.teal{
+    color: #95E1D3;
+}
+
+.peach{
+    color: #F38181;
+}
+
+
+/* Navbar Section */
+.navbar {
+    padding: 1.5% 15%;
+}
+
+.navbar-logo {
+    width: 3.5rem;
+    margin-right: 0.5rem;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Main content */
+.mainbox{
+    margin-top: 8rem;
+}
+
+
+
+/* Login page */
+.login-title {
+	font-weight: 500;
+	font-size: 4rem;
+}
+
+.loginbtn{
+	background-color: #95E1D3;
+	border: none;
+}
+
+
+/* Sign Up section */
+
+.signup-box {
+	border: 3px solid #95E1D3;
+	padding: 2rem;
+	margin-top: 3rem;
+	border-radius: 2rem;
+}
+
+.signup-btn {
+	background-color: #F38181;
+	border: none;
+}
+
+
+/* Dashboard Section */
+
+.mainbox-dash {
+	margin-top: 5rem;
+}
+
+.img-prev {
+	width: 300px;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+
+/* Add image section */
+.form-box{
+	border: 2px solid #808080;
+	margin: 5rem auto 0;
+	border-radius: 1.5rem;
+}
+
+.upload-box {
+	height:25rem;
+	background-color: #F38181;
+  	outline: 2px dashed white;
+  	outline-offset: -10px;
+  	border-radius:2rem;
+}
+
+
