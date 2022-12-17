@@ -4,6 +4,7 @@ import java.security.Principal;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.codingdojo.picturest.models.Photo;
 import com.codingdojo.picturest.models.User;
+import com.codingdojo.picturest.services.PhotoService;
 import com.codingdojo.picturest.services.UserService;
 import com.codingdojo.picturest.validator.UserValidator;
 
@@ -22,6 +25,10 @@ public class Users {
 	
 	private UserService userService;
 	private UserValidator userValidator;
+	
+	// Bringing in PhotoService so we can make use of "getAllPhotos"
+	@Autowired
+	private PhotoService photoService;
     
 	public Users(UserService userService, UserValidator userValidator) {
         this.userService = userService;
@@ -59,12 +66,14 @@ public class Users {
         // 1
         String email = principal.getName();
         model.addAttribute("currentUser", userService.findByUsername(email));
+        // Adding all photos to model 
+        model.addAttribute("allPhotos", photoService.getAllPhotos());
         return "homePage.jsp";
     }
     
     //    ======== new image form =======
     @GetMapping("/images/new")
-    public String newImageForm(Principal principal, Model model) {
+    public String newImageForm(Principal principal, Model model, @ModelAttribute("photoToAdd") Photo photoToAdd) {
     	String email = principal.getName();
         model.addAttribute("currentUser", userService.findByUsername(email));
     	return "newImage.jsp";

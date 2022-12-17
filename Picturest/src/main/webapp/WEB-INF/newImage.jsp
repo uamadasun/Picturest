@@ -73,11 +73,12 @@
 				</div>
 				
 				<div class="col-lg-5 col-5">
-					<form action="">
+					<form:form action="/add/photo/${currentUser.id}" method="POST" modelAttribute="photoToAdd">
 						<!-- Image title -->
 						<div class="mb-3">
-							<label for="" class="form-label"><h3>Image Title</h3></label>
-							<input type="text" class="form-control" />
+							<form:label path = "photoTitle" for="" class="form-label"><h3>Image Title</h3></form:label>
+							<form:input path = "photoTitle" type="text" class="form-control" />
+							<form:errors path = "photoTitle"/>
 						</div>
 						<!--  -->
 						<div class="mb-3">
@@ -85,22 +86,28 @@
 						</div>
 						<!-- Image Description -->
 						<div class="mb-3">
-  							<label for="exampleFormControlTextarea1" class="form-label">Tell everyone what your image is about</label>
-  							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  							<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="form-label">Tell everyone what your image is about</form:label>
+	   						<form:textarea path = "photoDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
+   						<form:errors path = "photoDescription"/>
 						</div>
 						
 						<!-- Image URL -->
 						<div class="mb-3">
-							<label for="" class="form-label">Image url:</label>
-							<input type="text" class="form-control" />
+							<form:label path = "photoURL" for="" class="form-label">Image url:</form:label>
+							<form:input path = "photoURL" type="text" class="form-control" />
+							<form:errors path = "photoURL"/>
 						</div>
 						
+						<!-- Binding user to form NEED TO DOUBLE CHECK PATH -->
+						<p>
+						<form:hidden path = "user" value = "${currentUser.id}"/>
+						</p>
 						<!-- Buttons for the form  -->
 						<div class="d-flex justify-content-between">
 						<button type="submit" class="btn btn-success loginbtn">Upload</button>
 						<a class="btn btn-danger" href="/">Cancel</a>
 						</div>
-					</form>
+					</form:form>
 				</div>
 				
 			</div>
