@@ -92,6 +92,12 @@
                         <div class="col">
                             <img class="img-prev" src="https://wallpapershome.com/images/pages/pic_h/12115.jpg" alt="">
                         </div>
+                        
+                        <c:forEach var = "eachPhoto" items = "${allPhotos}">
+                        <div class="col">
+                            <img class="img-prev" src="${ eachPhoto.getURL() }" alt="">
+                        </div>
+                        </c:forEach>
                     </div>
 
                 </div>
