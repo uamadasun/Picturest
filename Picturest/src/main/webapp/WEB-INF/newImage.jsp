@@ -73,7 +73,7 @@
 				</div>
 				
 				<div class="col-lg-5 col-5">
-					<form:form action="/add/photo/${currentUser.id}" method="POST" modelAttribute="photoToAdd">
+					<form:form action="/add/photo" method="POST" modelAttribute="photoToAdd">
 						<!-- Image title -->
 						<div class="mb-3">
 							<form:label path = "photoTitle" for="" class="form-label"><h3>Image Title</h3></form:label>

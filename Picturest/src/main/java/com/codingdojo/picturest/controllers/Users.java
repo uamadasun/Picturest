@@ -68,6 +68,7 @@ public class Users {
         model.addAttribute("currentUser", userService.findByUsername(email));
         // Adding all photos to model 
         model.addAttribute("allPhotos", photoService.getAllPhotos());
+     
         return "homePage.jsp";
     }
     
