@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,5 +80,39 @@ public class Users {
         model.addAttribute("currentUser", userService.findByUsername(email));
     	return "newImage.jsp";
     }
+    
+    //  ======== User to like a photo =======
+    @GetMapping("/like/{id}")
+    public String likePhoto(@PathVariable("id") Long photoId, Principal principal, Model model) {
+    	//find the photo object
+    	Photo thisPhoto = photoService.showOnePhoto(photoId);
+    	
+    	//find the user object
+    	User thisUser = userService.findByUsername(principal.getName());
+    	
+    	//call the likePhoto method in the userService
+    	userService.likePhoto(thisUser, thisPhoto);
+    	
+  
+    	return "redirect:/show/{id}";
+    	
+    }
+    
+//  ======== User to remove their like from a photo =======
+    @GetMapping("/dislike/{id}")
+    public String dislikePhoto(@PathVariable("id") Long photoId, Principal principal, Model model) {
+    	//find the photo object
+    	Photo thisPhoto = photoService.showOnePhoto(photoId);
+    	
+    	//find the user object
+    	User thisUser = userService.findByUsername(principal.getName());
+    	
+    	userService.removePhotoLike(thisUser, thisPhoto);
+    	
+    	return "redirect:/show/{id}";
+    	
+    }
+    
+    
     
 }

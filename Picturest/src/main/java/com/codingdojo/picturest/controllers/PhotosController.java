@@ -46,6 +46,9 @@ public class PhotosController {
 	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal) {
 		model.addAttribute("photo", photoService.showOnePhoto(photoId));
 		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+		
+		//add the list of users who like this photo
+		model.addAttribute("allLikes", photoService.showOnePhoto(photoId).getUsersWhoLikePhoto());
 		return "showOnePicture.jsp";
 		
 	}
