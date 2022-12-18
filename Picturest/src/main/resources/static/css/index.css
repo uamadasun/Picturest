@@ -68,6 +68,7 @@
 }
 
 
+
 /* Dashboard Section */
 
 .mainbox-dash {
@@ -94,5 +95,73 @@
   	outline-offset: -10px;
   	border-radius:2rem;
 }
+
+/* Show One Picture section */
+
+.img-showOne {
+	border-radius: 1.2rem;
+}
+
+.card {
+	border-radius: 2rem;
+}
+
+.showOne-box {
+	max-width: 1040px;
+	
+	margin-top: 2rem;
+}
+
+.sharebtn{
+	width:3rem;
+}
+
+.like-btn{
+	width: 2rem;
+}
+
+.comment-box{
+	border-radius: 1.6rem;
+}
+
+.card-body {
+	max-height:500px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.comment-title {
+	display: inline-block;
+}
+
+
+.arrow-down {
+	width:1rem;
+}
+
+.comment-btn {
+	background-color: #F38181;
+	border: none;
+	border-radius:3rem;
+}
+
+.edit-btn {
+	border-radius:3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
