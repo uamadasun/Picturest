@@ -68,6 +68,16 @@
 
                 <div class="container text-center">
                     <div class="row">
+                    
+                    	<c:forEach var = "eachPhoto" items = "${allPhotos}">
+                        <div class="col">
+                        
+                        <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
+                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                            
+                        </div>
+                        </c:forEach>
+                    	
                         <div class="col">
                             <img class="img-prev" src="https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg" alt="">
                         </div>
@@ -93,14 +103,7 @@
                             <img class="img-prev" src="https://wallpapershome.com/images/pages/pic_h/12115.jpg" alt="">
                         </div>
                         
-                        <c:forEach var = "eachPhoto" items = "${allPhotos}">
-                        <div class="col">
                         
-                        <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
-                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
-                            
-                        </div>
-                        </c:forEach>
                     </div>
 
                 </div>
