@@ -95,10 +95,24 @@
        						<p class="card-text"><c:out value="${photo.photoDescription }"/></p>
        						
        						<!-- ======= Like button and counter =========== -->
-       						<div class="d-flex align-items-end gap-3 mb-2">
+       						
+       						<!-- if user likes the photo, they will see this message instead of the like button; recommend making it a dislike button of some sort-->
+       						<c:if test="${allLikes.contains(currentUser) }">
+							<a href="/dislike/${photo.getId() }"> dislike photo</a>
+							</c:if>
+							
+							<!--  if the user hasn't yet liked the photo, they will see the like button-->
+							<c:if test="${!allLikes.contains(currentUser) }">
+							<div class="d-flex align-items-end gap-3 mb-2">
        							<a href="/like/${photo.getId() }"><img class="like-btn" src="https://cdn-icons-png.flaticon.com/512/456/456115.png" alt="" /></a> 
-       							<p class="card-text">Likes: </p>
        						</div>
+							</c:if>
+							
+							<!-- Likes counter -->
+							<div>
+							<p class="card-text">Likes: <c:out value="${allLikes.size() }"/></p>
+							</div>
+     
        						
        						<!-- Comments from other users -->
        						<h4 class="comment-title me-2 mb-3">Comments</h4><img class="arrow-down" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="" />
