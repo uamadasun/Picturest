@@ -78,7 +78,7 @@
     					<div class="d-flex justify-content-end align-items-center gap-4 ms-3">
     						<!-- Edit button -->
     						<c:if test="${photo.user.id == currentUser.id }">
-							<a href="/edit/${photo.getId()}" class="btn btn-info edit-btn">edit</a>
+							<a href="/edit/photo/${photo.getId()}" class="btn btn-info edit-btn">edit</a>
 							</c:if>
 							
       						

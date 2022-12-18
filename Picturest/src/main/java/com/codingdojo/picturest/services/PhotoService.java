@@ -35,9 +35,12 @@ public class PhotoService {
 	}
 	
 // ------------------------- EDIT ONE PHOTO FROM THE DB ------------------------- //
-public Photo updatePhoto(Photo photo) {
-	return photoRepo.save(photo);
-}
+	public Photo updatePhoto(Photo photo) {
+		return photoRepo.save(photo);
+	}
+
+
+
 
 	
 }
