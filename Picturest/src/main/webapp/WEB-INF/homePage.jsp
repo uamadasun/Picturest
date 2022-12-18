@@ -95,7 +95,10 @@
                         
                         <c:forEach var = "eachPhoto" items = "${allPhotos}">
                         <div class="col">
-                            <img class="img-prev" src="${ eachPhoto.getURL() }" alt="">
+                        
+                        <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
+                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                            
                         </div>
                         </c:forEach>
                     </div>
