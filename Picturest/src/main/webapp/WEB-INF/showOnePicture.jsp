@@ -77,12 +77,12 @@
 			<div class="card mb-3 p-3 mx-auto showOne-box shadow">
   				<div class="row g-3">
   				
-  					<!-- Right Side of the Card -->
+  					<!-- Left Side of the Card -->
     				<div class="col-md-5">
       					<img src="${ photo.getPhotoURL() }" class="img-fluid img-showOne" alt="...">
    					 </div>
    					 
-   					 <!-- Left Side of the Card -->
+   					 <!-- Right Side of the Card -->
     				<div class="col-md-7">
     					<div class="d-flex justify-content-end align-items-center gap-4 ms-3">
     						<!-- Edit button -->
