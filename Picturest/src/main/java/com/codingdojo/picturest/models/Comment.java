@@ -73,75 +73,64 @@ public class Comment {
         this.updatedAt = new Date();
     }
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getComment() {
 		return comment;
 	}
-
 
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
 
-
 	public User getUser() {
 		return user;
 	}
-
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-
 	public Photo getPhoto() {
 		return photo;
 	}
-
 
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
 
-
 	public List<User> getUsersWhoLikeComment() {
 		return usersWhoLikeComment;
 	}
-
 
 	public void setUsersWhoLikeComment(List<User> usersWhoLikeComment) {
 		this.usersWhoLikeComment = usersWhoLikeComment;
 	}
 
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+
+	
     
     
 	

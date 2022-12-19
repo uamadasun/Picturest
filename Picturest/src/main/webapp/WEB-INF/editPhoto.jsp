@@ -109,7 +109,7 @@
 							<p>
  							<form:input type="hidden"  path = "user"/>
  							<form:input type="hidden"  path = "usersWhoLikePhoto"/>
- 							<form:input type="hidden"  path = "userCommentsOnPhoto"/>
+ 							<form:input type="hidden"  path = "comments"/>
 							</p>
 							
 							<!-- Buttons for the form  -->
