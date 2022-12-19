@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.codingdojo.picturest.models.Comment;
 import com.codingdojo.picturest.models.Photo;
 import com.codingdojo.picturest.models.User;
+import com.codingdojo.picturest.repositories.CommentRepository;
 import com.codingdojo.picturest.repositories.RoleRepository;
 import com.codingdojo.picturest.repositories.UserRepository;
 
@@ -20,6 +22,10 @@ public class UserService {
     
     @Autowired
     private PhotoService photoService;
+    
+    // Bring in CommentRepository so "thisComment" can be saved to db
+    @Autowired
+    private CommentRepository commentRepo;
     
     public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder)     {
         this.userRepository = userRepository;
@@ -76,4 +82,22 @@ public class UserService {
     	
     	return userRepository.save(thisUser);
     }
+    
+// =================== ADD COMMENT TO USER'S "usersWhoLikeComment" =================== //
+    public void addComment(String thisComment, Photo thisPhoto, User thisUser) {
+    	Comment newComment = new Comment(thisComment,thisUser,  thisPhoto);
+    	commentRepo.save(newComment);
+    }
+    
+// =================== GET ALL COMMENTs BY PHOTO ID =================== //
+    public List<Comment> getCommentsByPhotoId(Long id){
+    	List<Comment> CommentsByPhotoId = commentRepo.findAllCommentsByPhotoId(id);
+    	if(CommentsByPhotoId == null) {
+    		return null;
+    	}
+    	return CommentsByPhotoId;
+    	}
+   
+    
+    
 }

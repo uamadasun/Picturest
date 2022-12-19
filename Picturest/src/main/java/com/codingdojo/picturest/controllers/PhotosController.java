@@ -38,9 +38,6 @@ public class PhotosController {
 	}
 	
 
-	
-	
-	
 // ------------------------- SHOW ONE PHOTO ------------------------- //
 	@GetMapping("/show/{id}")
 	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal) {
@@ -49,6 +46,9 @@ public class PhotosController {
 		
 		//add the list of users who like this photo
 		model.addAttribute("allLikes", photoService.showOnePhoto(photoId).getUsersWhoLikePhoto());
+		
+		//add all of the comments on the photo - get all comments by photoId?
+		model.addAttribute("allCommentsByPhotoId", userService.getCommentsByPhotoId(photoId));
 		return "showOnePicture.jsp";
 		
 	}
