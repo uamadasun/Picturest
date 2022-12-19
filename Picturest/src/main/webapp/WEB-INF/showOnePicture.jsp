@@ -118,7 +118,14 @@
        						<h4 class="comment-title me-2 mb-3">Comments</h4><img class="arrow-down" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="" />
        						
        						<!-- ========= below is where the comments should go =========  -->
-       						<p class="card-text"></p>
+       						<p class="card-text">
+       						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
+      
+       							<c:out  value = "${currentUser.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+       						
+       						</c:forEach>
+       						
+       						</p>
        						
        						
        					
@@ -128,10 +135,10 @@
        					
       					<div class="card-footer">
       						<form action="/comment/${photo.getId() }" method="post">
-  								<textarea class="form-control comment-box" id="exampleFormControlTextarea1" rows="2" placeholder="Add a comment"></textarea>
-  								<input type="hidden" name="user" value="${currentUser}">
+  								<textarea name="comment" class="form-control comment-box" id="exampleFormControlTextarea1" rows="2" placeholder="Add a comment"></textarea>
 								<input type="hidden" name="photo" value="${photo}">
 								<input class="btn btn-secondary comment-btn mt-2" type="submit" />
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
   							</form>
   						</div>
   						

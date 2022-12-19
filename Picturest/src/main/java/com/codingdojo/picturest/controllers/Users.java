@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.codingdojo.picturest.models.Comment;
 import com.codingdojo.picturest.models.Photo;
 import com.codingdojo.picturest.models.User;
 import com.codingdojo.picturest.services.PhotoService;
@@ -93,7 +94,7 @@ public class Users {
     	//call the likePhoto method in the userService
     	userService.likePhoto(thisUser, thisPhoto);
     	
-  
+    	
     	return "redirect:/show/{id}";
     	
     }
@@ -112,6 +113,22 @@ public class Users {
     	return "redirect:/show/{id}";
     	
     }
+    
+// ========================== ADD COMMENT ROUTE ========================== //
+    // Validations?
+    @PostMapping("/comment/{id}")
+    public String addComment(@PathVariable("id") Long id, @RequestParam("photo") String photo, @RequestParam("comment") String comment, Principal principal) {
+    	// get photoId, get userId, get comment string
+    	Photo thisPhoto = photoService.showOnePhoto(id);
+    	User thisUser = userService.findByUsername(principal.getName());
+    	userService.addComment(comment, thisPhoto, thisUser);
+    	return "redirect:/show/{id}";
+    }
+    
+    
+    
+    
+    
     
     
     

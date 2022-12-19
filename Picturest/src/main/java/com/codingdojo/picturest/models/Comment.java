@@ -55,6 +55,13 @@ public class Comment {
   //CREATE EMPTY CONSTRUCTOR
     public Comment() {}
     
+    // create a comment with inputs: comment, user, photo
+    public Comment(String comment, User user, Photo photo) {
+    	this.comment = comment;
+    	this.user = user;
+    	this.photo = photo;
+    }
+    
     
   //HANDLING CREATED AT AND UPDATED AT
     @PrePersist
