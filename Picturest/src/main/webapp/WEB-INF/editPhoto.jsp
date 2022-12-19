@@ -67,63 +67,78 @@
 
 <!-- ============== MAIN BOX ================ -->
 
-	<div class="container">
+<div class="container">
 		
-		
-		<div class="row">
-			<div class="col-lg-7 d-flex justify-content-evenly form-box py-4 shadow">
-			
-				<div class="col-lg-4 col-4 upload-box d-flex justify-content-center align-items-center">
-					<!-- <div class="col-md-5"> -->
-      					<img src="${ photo.getPhotoURL() }" class="img-fluid img-showOne" alt="...">
-					<!-- </div> -->
-				</div>
-				
-				<div class="col-lg-5 col-5">
-					<form:form action="/edit/photo/success/${photo.id}" method="post" modelAttribute="photo">
- 					<input type="hidden" name="_method" value="put"/>
-						<!-- Image title -->
- 						<div class="mb-3">
-							<form:label path = "photoTitle" for="" class="form-label"><h3>Image Title</h3></form:label>
-							<form:input path = "photoTitle" type="text" class="form-control" />
-							<form:errors path = "photoTitle"/>
-						</div>
-						<!--  -->
- 						<div class="mb-3">
-							<p>Image by: <c:out value="${currentUser.firstName}"></c:out></p>
-						</div>
-						<!-- Image Description -->
- 						<div class="mb-3">
-  							<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="form-label">Tell everyone what your image is about</form:label>
-	   						<form:textarea path = "photoDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
-   							<form:errors path = "photoDescription"/>
-						</div>
-						
-						<!-- Image URL -->
-						<div class="mb-3">
- 						<form:input type="hidden" path = "photoURL" />
-						</div>
-						
-						<!-- removed "value = "${currentUser.id}" -->
-						<!-- need form:hidden for usersWhoLikePhoto, userCommentsOnPhoto -->
-						<p>
- 						<form:input type="hidden"  path = "user"/>
- 						<form:input type="hidden"  path = "usersWhoLikePhoto"/>
- 						<form:input type="hidden"  path = "userCommentsOnPhoto"/>
-						</p>
-						<!-- Buttons for the form  -->
-						
-						<div class="d-flex justify-content-between">
-						<button class="btn btn-success loginbtn">Edit</button>
-
-						</div>
-					</form:form>
-				</div>
-				
-			</div>
+		<!-- New TESTING NEW EDIT FORM -->
+	<div class="row">
+		<div class="card mb-3 showOne-box shadow mx-auto p-3">
+  			<div class="row g-3">
+  			
+  			<!-- Left Side of Card -->
+    			<div class="col-md-5">
+     				<img src="${ photo.getPhotoURL() }" class="img-fluid img-showOne" alt="current user uploaded image">
+    			</div>
+    		<!-- Right Side of Card -->
+    			<div class="col-md-7 p-4">
+      				<div class="card-body">
+      					<form:form action="/edit/photo/success/${photo.id}" method="post" modelAttribute="photo">
+ 						<input type="hidden" name="_method" value="put"/>
+ 							<!-- Image title -->
+ 							<div class="mb-3">
+								<form:label path = "photoTitle" for="" class="form-label edit-img-title">Edit image title</form:label>
+								<form:input path = "photoTitle" type="text" class="form-control" />
+								<form:errors path = "photoTitle"/>
+							</div>
+							<!-- Image Owner -->
+							<div class="mb-3 d-flex gap-2 align-items-center">
+								<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
+								<p class="user-img-name"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
+							</div>
+							<!-- Image Description -->
+ 							<div class="mb-3">
+  								<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="form-label edit-img-description">Tell everyone what your image is about</form:label>
+	   							<form:textarea path = "photoDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
+   								<form:errors path = "photoDescription"/>
+							</div>
+							<!-- Image URL -->
+							<div>
+ 								<form:input type="hidden" path = "photoURL" />
+							</div>
+							<!-- removed "value = "${currentUser.id}" -->
+							<!-- need form:hidden for usersWhoLikePhoto, userCommentsOnPhoto -->
+							<p>
+ 							<form:input type="hidden"  path = "user"/>
+ 							<form:input type="hidden"  path = "usersWhoLikePhoto"/>
+ 							<form:input type="hidden"  path = "userCommentsOnPhoto"/>
+							</p>
+							
+							<!-- Buttons for the form  -->
+							<div class="d-flex justify-content-between">
+							<button class="btn btn-secondary edit-confirm-btn px-3">Save</button>
+							<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
+							</div>
+        					
+      					</form:form>
+      				</div>
+    			</div>
+    			
+  			</div>
 		</div>
-		
 	</div>
+		
+		
+		
+</div>
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
