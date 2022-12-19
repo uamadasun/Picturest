@@ -62,13 +62,10 @@ public class User {
 			)
 	private List<Photo> likedPhotos;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-			name = "user_comments_on_photo",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name="photo_id")
-			)
-	private List<Photo> photosUserCommentsOn;
+	//NEW ONE-TO-MANY
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Comment> userComments;
+	
 	
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
@@ -204,15 +201,16 @@ public class User {
 	}
 
 
-	public List<Photo> getPhotosUserCommentsOn() {
-		return photosUserCommentsOn;
+	public List<Comment> getUserComments() {
+		return userComments;
 	}
 
 
-	public void setPhotosUserCommentsOn(List<Photo> photosUserCommentsOn) {
-		this.photosUserCommentsOn = photosUserCommentsOn;
+	public void setUserComments(List<Comment> userComments) {
+		this.userComments = userComments;
 	}
-	
+
+
 	public List<Comment> getCommentsUserLikes() {
 		return commentsUserLikes;
 	}
@@ -232,11 +230,6 @@ public class User {
 		this.roles = roles;
 	}
 
-
-    
-    
-	
-	 
 	 
 
 }

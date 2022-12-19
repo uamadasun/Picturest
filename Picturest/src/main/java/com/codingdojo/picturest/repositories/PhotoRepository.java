@@ -11,6 +11,7 @@ import com.codingdojo.picturest.models.Photo;
 public interface PhotoRepository extends CrudRepository<Photo, Long> {
 
 	List<Photo> findAll();
+	
 //	List<Photo> findByUserNameIdIs(Long id);
 	
 }

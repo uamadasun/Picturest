@@ -131,7 +131,7 @@
        						<p class="card-text">
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
       
-       							<c:out  value = "${currentUser.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+       							<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
        						
        						</c:forEach>
        						

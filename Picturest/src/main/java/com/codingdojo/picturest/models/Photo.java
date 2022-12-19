@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -51,13 +52,9 @@ public class Photo {
 			)
 	private List<User> usersWhoLikePhoto;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			name="user_comments_on_photo",
-			joinColumns = @JoinColumn(name="photo_id"),
-			inverseJoinColumns = @JoinColumn(name="user_id")
-			)
-	private List<User> userCommentsOnPhoto;
+	//NEW ONE-TO-MANY
+	@OneToMany(mappedBy="photo", fetch = FetchType.LAZY)
+	private List<Comment> comments;
 	
 	//CREATED AND UPDATED AT
 	@Column(updatable=false)
@@ -82,8 +79,7 @@ public class Photo {
     }
 
     
-    
-    //GETTERS AND SETTERS
+  //GETTERS AND SETTERS
 	public Long getId() {
 		return id;
 	}
@@ -144,13 +140,13 @@ public class Photo {
 	}
 
 
-	public List<User> getUserCommentsOnPhoto() {
-		return userCommentsOnPhoto;
+	public List<Comment> getComments() {
+		return comments;
 	}
 
 
-	public void setUserCommentsOnPhoto(List<User> userCommentsOnPhoto) {
-		this.userCommentsOnPhoto = userCommentsOnPhoto;
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 
@@ -172,5 +168,10 @@ public class Photo {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
+    
+    
+    
+
 
 }
