@@ -3,14 +3,11 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
-
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome Page 2</title>
-
+<meta charset="UTF-8">
+<title>Show One User</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -67,66 +64,39 @@
     </nav>
     
     
-   <!-- ============== MAIN BOX ==============  -->
-	
+    
 
-                <div class="container text-center">
-                    <div class="row text-center mainbox-dash">
-                    
-                    	<c:forEach var = "eachPhoto" items = "${allPhotos}">
-                        <div class="col">
+	<div class="container">
+	
+		<!-- User's card info -->
+		<div class="row">
+			<div class="col text-center mt-3 user-card">
+				<img class="user-profile-icon mb-3" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="user profile image" />
+            	<h1 class="mb-3"><c:out value="${currentUser.firstName } ${currentUser.lastName }" /></h1>
+            	<a class="btn btn-secondary add-img-btn text-light mb-5" href="/images/new">Add Image</a>
+            	<h5>Created</h5>
+            </div>
+        </div>  
+            <!-- User's Photo Gallery -->        
+		<div class="row text-center">
+				<c:forEach var = "eachPhoto" items = "${allPhotos}">
+					<c:if test="${eachPhoto.user.id .equals(currentUser.id) }">
+						<div class="col">
                         
                         <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
                         <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
                             
                         </div>
-                        </c:forEach>
-                    	
-                        <div class="col">
-                            <img class="img-prev" src="https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://d39l2hkdp2esp1.cloudfront.net/img/photo/170224/170224_00_2x.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://shotkit.com/wp-content/uploads/2020/07/landscapevportrait_image002.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://www.shutterstock.com/shutterstock/photos/1320880223/display_1500/stock-photo-probiotics-food-background-kimchi-beet-sauerkraut-sauerkraut-cottage-cheese-olives-bread-1320880223.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2017/09/Mt-Assiniboine.jpg?fit=750%2C575&ssl=1" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18463883.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://www.bwillcreative.com/wp-content/uploads/2020/05/portrait-orientation-zion-national-park.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://wallpapershome.com/images/pages/pic_h/12115.jpg" alt="">
-                        </div>
-                        
-                        
-                    </div>
-
-                </div>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
+					</c:if>
+				</c:forEach>
+			 	
+		</div>
+	</div>
 
     
     
+    
+    
+
 </body>
 </html>
