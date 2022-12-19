@@ -80,5 +80,17 @@ public class PhotosController {
 		}
 	}
 
+	
+	// ================ SHOW ONE USER PHOTOS =================
+	@GetMapping("/show/one/user")
+	public String showOneUser(Principal principal, Model model) {
+        // 1
+        String email = principal.getName();
+        model.addAttribute("currentUser", userService.findByUsername(email));
+        // Adding all photos to model 
+        model.addAttribute("allPhotos", photoService.getAllPhotos());
+     
+        return "showOneUser.jsp";
+    }
 
 }

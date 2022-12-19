@@ -20,9 +20,8 @@
 </head>
 <body>
 
-<!-- ============= NAVBAR SECTION ============= -->
-
-	<nav class="navbar navbar-expand-lg bg-light">
+	<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
                     alt="logo camera image">Picturest</a>
@@ -34,26 +33,32 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <!-- Change to ms-auto to give space between brand name and the links -->
+                <!-- ms-auto to give space between brand name and the links -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link btn btn-secondary text-light" href="#">Log In</a>
+                
+                	<li>
+                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/images/new">Add Image</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary text-light" href="#">Register</a>
-                    </li> -->
-                    <li>
-                    	<a class="btn btn-warning" href="/images/new">Add Image</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Welcome: <c:out value="${currentUser.firstName}"></c:out></a>
-                    </li>
-                    <li class="nav-item">
-                    	<form id="logoutForm" method="POST" action="/logout">
-        					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        					<input class="btn btn-secondary" type="submit" value="Logout" />
-    					</form>
-                    </li>
+                	
+                	<!-- =========== dropdown nav item =============-->
+                	<li class="nav-item dropdown">
+          				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            				Welcome: <c:out value="${ currentUser.firstName}" />
+          				</a>
+          				<ul class="dropdown-menu">
+          					<!-- have to change the link below for showOneUser route -->
+            				<li><a class="dropdown-item" href="/show/one/user">My Profile</a></li>
+            				<li><a class="dropdown-item" href="/images/new">Add Image</a></li>
+            				<li><hr class="dropdown-divider"></li>
+            				<li>
+            					<form id="logoutForm" method="POST" action="/logout">
+        						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        						<input class="dropdown-item" type="submit" value="Logout" />
+    							</form>
+            				</li>
+          				</ul>
+        			</li>
+        			<!-- ============End of dropdown nav item================ -->
                 </ul>
             </div>
         </div>

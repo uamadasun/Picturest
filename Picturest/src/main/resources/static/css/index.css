@@ -34,6 +34,12 @@
     font-size: 2rem;
 }
 
+.add-img-btn {
+	background-color: #F38181;
+	border: none;
+	border-radius:3rem;
+}
+
 /* Main content */
 .mainbox{
     margin-top: 8rem;
@@ -150,8 +156,18 @@
 }
 
 
+/* ================= SHOW ONE USER PROFILE ================= */
 
+.user-card {
+	margin-bottom: 5rem;
+}
 
+.user-profile-icon {
+	width: 7rem;
+	border: 5px solid #F38181;
+	border-radius: 50%;
+	padding: 0.5rem;
+}
 
 
 
