@@ -2,8 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -137,8 +139,17 @@
        						<!-- ========= below is where the comments should go =========  -->
        						<p class="card-text">
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
-      
+      							
        							<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+       							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
+       								
+       								<form:form action = "/delete/${eachComment.getId()}" method="delete">
+									    <p class="submit">
+									    	<input type="submit" value="Delete"/>
+									    </p>
+									</form:form>
+       								
+       							</c:if>					
        						
        						</c:forEach>
        						

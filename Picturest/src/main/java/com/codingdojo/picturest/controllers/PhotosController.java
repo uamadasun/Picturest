@@ -24,8 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.codingdojo.picturest.models.Photo;
+
 import com.codingdojo.picturest.models.User;
 import com.codingdojo.picturest.repositories.PhotoRepository;
+
+import com.codingdojo.picturest.services.CommentService;
+
 import com.codingdojo.picturest.services.PhotoService;
 import com.codingdojo.picturest.services.UserService;
 
@@ -40,6 +44,9 @@ public class PhotosController {
 	//bringing in user service for liking and commenting on photo
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	
 // ------------------------- SAVE PHOTO TO DB ------------------------- //
@@ -61,12 +68,12 @@ public class PhotosController {
 		model.addAttribute("allLikes", photoService.showOnePhoto(photoId).getUsersWhoLikePhoto());
 		
 		//add all of the comments on the photo - get all comments by photoId?
-		model.addAttribute("allCommentsByPhotoId", userService.getCommentsByPhotoId(photoId));
+		model.addAttribute("allCommentsByPhotoId", commentService.getCommentsByPhotoId(photoId));
 		return "showOnePicture.jsp";
 		
 	}
 	
-	
+
 // ------------------------- EDIT ONE PHOTO ------------------------- //
 	// TAKE USER TO EDIT PHOTO PAGE. NEED MODEL ATTRIBUTE FOR THE FORM:FORM BIND INFORMATION
 	@GetMapping("/edit/photo/{id}")

@@ -83,20 +83,9 @@ public class UserService {
     	return userRepository.save(thisUser);
     }
     
-// =================== ADD COMMENT TO USER'S "usersWhoLikeComment" =================== //
-    public void addComment(String thisComment, Photo thisPhoto, User thisUser) {
-    	Comment newComment = new Comment(thisComment,thisUser,  thisPhoto);
-    	commentRepo.save(newComment);
-    }
+
     
-// =================== GET ALL COMMENTs BY PHOTO ID =================== //
-    public List<Comment> getCommentsByPhotoId(Long id){
-    	List<Comment> CommentsByPhotoId = commentRepo.findAllCommentsByPhotoId(id);
-    	if(CommentsByPhotoId == null) {
-    		return null;
-    	}
-    	return CommentsByPhotoId;
-    	}
+
    
     
     
