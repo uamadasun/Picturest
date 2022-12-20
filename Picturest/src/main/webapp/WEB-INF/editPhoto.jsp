@@ -76,8 +76,16 @@
   			
   			<!-- Left Side of Card -->
     			<div class="col-md-5">
-     				<img src="${ photo.getPhotoURL() }" class="img-fluid img-showOne" alt="current user uploaded image">
+     				<c:if test="${photo.getPhotoURL() == null}">
+                                <img src="${photo.getPhotoImagePath() }" class="img-fluid img-showOne" alt="current user uploaded image">
+                            </c:if>
+                            
+                   <c:if test="${photo.getPhotoURL() != null}">
+                       <img src="${photo.getPhotoURL() }" class="img-fluid img-showOne" alt="current user uploaded image">
+                   </c:if>
     			</div>
+	
+    			
     		<!-- Right Side of Card -->
     			<div class="col-md-7 p-4">
       				<div class="card-body">
@@ -102,7 +110,16 @@
 							</div>
 							<!-- Image URL -->
 							<div>
- 								<form:input type="hidden" path = "photoURL" />
+							
+							<c:if test="${photo.getPhotoURL() == null}">
+                                <form:input type="hidden" path = "photoFileName" />
+                            </c:if>
+                            
+		                   <c:if test="${photo.getPhotoURL() != null}">
+		                       <form:input type="hidden" path = "photoURL" />
+		                   </c:if>
+							
+							
 							</div>
 							<!-- removed "value = "${currentUser.id}" -->
 							<!-- need form:hidden for usersWhoLikePhoto, userCommentsOnPhoto -->

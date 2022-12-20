@@ -79,7 +79,14 @@
   				
   					<!-- Left Side of the Card -->
     				<div class="col-md-5">
-      					<img src="${ photo.getPhotoURL() }" class="img-fluid img-showOne" alt="...">
+    				
+	    				<c:if test="${photo.getPhotoURL() == null}">
+	                        <img src="${photo.getPhotoImagePath() }"  class="img-fluid img-showOne" alt="..."/> 
+	                   	</c:if>
+	                            
+	                    <c:if test="${photo.getPhotoURL() != null}">
+	                        <img class="img-prev" src="${ photo.getPhotoURL() }"  class="img-fluid img-showOne" alt="...">
+	                    </c:if>
    					 </div>
    					 
    					 <!-- Right Side of the Card -->
