@@ -87,7 +87,7 @@
 	                   	</c:if>
 	                            
 	                    <c:if test="${photo.getPhotoURL() != null}">
-	                        <img class="img-prev" src="${ photo.getPhotoURL() }"  class="img-fluid img-showOne" alt="...">
+	                        <img src="${ photo.getPhotoURL() }"  class="img-fluid img-showOne" alt="...">
 	                    </c:if>
    					 </div>
    					 
@@ -96,11 +96,11 @@
     					<div class="d-flex justify-content-end align-items-center gap-4 ms-3">
     						<!-- Edit button -->
     						<c:if test="${photo.user.id == currentUser.id }">
-							<a href="/edit/photo/${photo.getId()}" class="btn btn-info edit-btn">edit</a>
+							<a href="/edit/photo/${photo.getId()}" class="btn btn-info edit-btn text-light">Edit</a>
 							<form action="/delete/photo/${photo.getId()}" method="post">
 									<input type="hidden" name="_method" value="delete">
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-									<input type="submit" value="Delete Photo"/>
+									<input class="btn btn-danger delete-img-btn" type="submit" value="Delete Photo"/>
 								</form>
 							</c:if>
 							
@@ -111,15 +111,19 @@
       					<div class="card-body">
       						
       						<!-- Title -->
-        					<h1 class="card-title mb-2"><c:out value="${photo.photoTitle }"/></h1>
-        					<!-- Photo by: -->
-        					<p class="card-text">Photo by: <c:out value="${photo.user.firstName }"/></p>
+        					<h1 class="card-title mb-2 img-card-title"><c:out value="${photo.photoTitle }"/></h1>
         					<!-- Description -->
-       						<p class="card-text"><c:out value="${photo.photoDescription }"/></p>
+       						<p class="card-text img-card-desc"><c:out value="${photo.photoDescription }"/></p>
+        					<!-- Photo by: -->
+        					<div class="mb-3 d-flex gap-2 align-items-center">
+								<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
+								<p class="user-img-name username"><c:out value="${photo.user.firstName} ${photo.user.lastName }"></c:out></p>
+							</div>
+        					
        						
        						<!-- ======= Like button and counter =========== -->
        						
-       						<div class="d-flex gap-3 align-items-center">
+       						<div class="d-flex gap-3 align-items-center mb-3">
        						
        						<!-- if user likes the photo, they will see this message instead of the like button; recommend making it a dislike button of some sort-->
        						<c:if test="${allLikes.contains(currentUser) }">

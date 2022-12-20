@@ -100,7 +100,7 @@
 							<!-- Image Owner -->
 							<div class="mb-3 d-flex gap-2 align-items-center">
 								<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
-								<p class="user-img-name"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
+								<p class="user-img-name username"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
 							</div>
 							<!-- Image Description -->
  							<div class="mb-3">
