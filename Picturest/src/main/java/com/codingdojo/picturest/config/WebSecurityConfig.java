@@ -21,8 +21,9 @@ public class WebSecurityConfig {
 	@Bean
 	protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		
-		http.
-	            authorizeRequests()
+		http
+		
+	            .authorizeRequests()
 	                .antMatchers("/css/**", "/js/**", "/registration").permitAll()
 	                .anyRequest().authenticated()
 	                .and()

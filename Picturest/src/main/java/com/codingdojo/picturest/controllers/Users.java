@@ -114,16 +114,7 @@ public class Users {
     	
     }
     
-// ========================== ADD COMMENT ROUTE ========================== //
-    // Validations?
-    @PostMapping("/comment/{id}")
-    public String addComment(@PathVariable("id") Long id, @RequestParam("photo") String photo, @RequestParam("comment") String comment, Principal principal) {
-    	// get photoId, get userId, get comment string
-    	Photo thisPhoto = photoService.showOnePhoto(id);
-    	User thisUser = userService.findByUsername(principal.getName());
-    	userService.addComment(comment, thisPhoto, thisUser);
-    	return "redirect:/show/{id}";
-    }
+
     
     
     
