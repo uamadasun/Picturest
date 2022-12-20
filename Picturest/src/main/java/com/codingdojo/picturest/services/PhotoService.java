@@ -1,5 +1,6 @@
 package com.codingdojo.picturest.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,7 @@ public class PhotoService {
 		return photoRepo.findAll();
 	}
 	
+	
 // ------------------------- SHOW ONE PHOTO FROM THE DB ------------------------- //
 	public Photo showOnePhoto(Long id) {
 		Optional<Photo> optionalPhoto = photoRepo.findById(id);
@@ -45,6 +47,6 @@ public class PhotoService {
 		photoRepo.deleteById(id);
 		return;
 	}
-
+	
 	
 }
