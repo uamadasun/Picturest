@@ -40,7 +40,11 @@ public class PhotoService {
 	}
 
 
-
+// ------------------------- DELETE ONE PHOTO FROM THE DB ------------------------- //
+	public void deletePhoto(Long id) {
+		photoRepo.deleteById(id);
+		return;
+	}
 
 	
 }

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +24,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.codingdojo.picturest.models.Comment;
 import com.codingdojo.picturest.models.Photo;
-
-import com.codingdojo.picturest.models.User;
 import com.codingdojo.picturest.repositories.PhotoRepository;
-
 import com.codingdojo.picturest.services.CommentService;
-
 import com.codingdojo.picturest.services.PhotoService;
 import com.codingdojo.picturest.services.UserService;
 
@@ -138,8 +136,10 @@ public class PhotosController {
 	        thisPhoto.setPhotoDescription(imageDescription);
 	        thisPhoto.setUser(userService.findByUsername(principal.getName()));
 	        
+	        //save new photo
 	        Photo savedPhoto = photoRepository.save(thisPhoto);
 	        
+	        //create upload directory
 	        String uploadDir = "./src/main/resources/static/pictures/" + savedPhoto.getId();
 	        Path uploadPath = Paths.get(uploadDir);
 	        
@@ -158,6 +158,17 @@ public class PhotosController {
 	        return "redirect:/home";
 			
 		}
+		
+	// ================ DELETE A PHOTO =================
+	@DeleteMapping("/delete/photo/{id}")
+	public String deletePhoto(@PathVariable("id") Long id, Principal principal) {
+		//find all the comments on this photo and delete it from photo
+		for(Comment comment:commentService.getCommentsByPhotoId(id)) {
+			commentService.deleteComment(comment.getId());
+		}
+		photoService.deletePhoto(id);
+		return "redirect:/home";
+	}
 	
 	
 	

@@ -97,6 +97,11 @@
     						<!-- Edit button -->
     						<c:if test="${photo.user.id == currentUser.id }">
 							<a href="/edit/photo/${photo.getId()}" class="btn btn-info edit-btn">edit</a>
+							<form action="/delete/photo/${photo.getId()}" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+									<input type="submit" value="Delete Photo"/>
+								</form>
 							</c:if>
 							
       						
