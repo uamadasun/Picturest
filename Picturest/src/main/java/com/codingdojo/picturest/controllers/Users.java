@@ -93,8 +93,10 @@ public class Users {
     	
     	//call the likePhoto method in the userService
     	userService.likePhoto(thisUser, thisPhoto);
-    	
-    	
+
+    	//adding "editPressed" boolean to model to be able to toggle edit form
+    	Boolean editPressed = false;
+    	model.addAttribute("editPressed", editPressed);
     	return "redirect:/show/{id}";
     	
     }
@@ -110,6 +112,9 @@ public class Users {
     	
     	userService.removePhotoLike(thisUser, thisPhoto);
     	
+    	//adding "editPressed" boolean to model to be able to toggle edit form
+    	Boolean editPressed = false;
+    	model.addAttribute("editPressed", editPressed);
     	return "redirect:/show/{id}";
     	
     }
