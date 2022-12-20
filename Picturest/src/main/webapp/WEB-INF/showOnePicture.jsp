@@ -133,12 +133,28 @@
        						<p class="card-text">
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
       							
-       							<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+      							
+      							
+      							<c:choose >
+      								<c:when test = "${ editPressed == false }">
+       									<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+       								</c:when>
+       								<c:otherwise>
+       									<h1>Test Test Test</h1>
+       								</c:otherwise>		
+       							</c:choose>
+       							
+       							
        							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
        								
        								<form:form action = "/delete/${eachComment.getId()}" method="delete">
 									    <p class="submit">
 									    	<input type="submit" value="Delete"/>
+									    </p>
+									</form:form>
+									<form:form action = "/edit/${eachComment.getId()}" method="put">
+									    <p class="submit">
+									    	<input type="submit" value="Edit"/>
 									    </p>
 									</form:form>
        								
