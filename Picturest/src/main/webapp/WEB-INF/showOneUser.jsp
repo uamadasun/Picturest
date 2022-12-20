@@ -83,8 +83,16 @@
 					<c:if test="${eachPhoto.user.id .equals(currentUser.id) }">
 						<div class="col">
                         
-                        <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
-                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                        <!-- SHOW IMAGES -->
+                        
+                        <c:if test="${eachPhoto.getPhotoURL() == null}">
+                                <a href="/show/${eachPhoto.id }"><img class="img-prev" src="${eachPhoto.getPhotoImagePath() }" alt="" /></a> 
+                            </c:if>
+                            
+                        <c:if test="${eachPhoto.getPhotoURL() != null}">
+                            <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                            </c:if>
+
                             
                         </div>
 					</c:if>
