@@ -22,43 +22,126 @@
 <body>
 
 
+	<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
+                    alt="logo camera image">Picturest</a>
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-<section class="my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>Upload Image Example</h2>
-                <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
-                <form method="post" th:action="/upload" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <input type="file" name="fileImage" accept="image/*" class="form-control-file">
-                    </div>
-                    
-                    
-                    <div class="form-group">
-                    	<label for="imageTitle"> Image Title</label>
-                        <input type="text" name="imageTitle" class="form-control-file">
-                    </div>
-                    
-                    <div class="form-group">
-                    <label for="imageDescription"> Image Description</label>
-                        <input type="text" name="imageDescription" class="form-control-file">
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    </div>
-                    
-                    
-                    
-                    <button type="submit" class="btn btn-primary">Upload image</button>
-                </form>
-                <span th:if="${msg != null}" th:text="${msg}"></span>
+                <!-- ms-auto to give space between brand name and the links -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
+                
+                	<li>
+                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/images/new">Add Image</a>
+                    </li>
+                	
+                	<!-- =========== dropdown nav item =============-->
+                	<li class="nav-item dropdown">
+          				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            				Welcome: <c:out value="${ currentUser.firstName}" />
+          				</a>
+          				<ul class="dropdown-menu">
+          					<!-- have to change the link below for showOneUser route -->
+            				<li><a class="dropdown-item" href="/show/one/user">My Profile</a></li>
+            				<li><a class="dropdown-item" href="/images/new">Add Image</a></li>
+            				<li><hr class="dropdown-divider"></li>
+            				<li>
+            					<form id="logoutForm" method="POST" action="/logout">
+        						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        						<input class="dropdown-item" type="submit" value="Logout" />
+    							</form>
+            				</li>
+          				</ul>
+        			</li>
+        			<!-- ============End of dropdown nav item================ -->
+                </ul>
             </div>
         </div>
+    </nav>
+
+
+
+<div class="container">
+
+    <div class="row">
+
+        
+            
+
+            <div class=" card col-xl-6 col-md-8 shadow p-5 mx-auto mt-4 upload-form">
+                <!-- <h2>Upload Image</h2> -->
+                
+                    <form method="post" th:action="/upload" enctype="multipart/form-data">
+
+                        <div class="form-group mb-3">
+                            <label class="edit-img-title" for="imageTitle"> Image Title</label>
+                            <input type="text" name="imageTitle" class="form-control-file form-control">
+                        </div>
+                        
+                        <!-- Image Owner -->
+						<div class="mb-3 d-flex gap-2 align-items-center">
+							<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
+							<p class="user-img-name username"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
+						</div>
+                        
+                        
+                        <div class="form-group mb-4">
+                            <label for="imageDescription" class="edit-img-description"> Tell everyone what your image is about:</label>
+                            <textarea name="imageDescription" class="form-control-file form-control"
+                                rows="3"></textarea>
+                        </div>
+                        
+                        
+                        
+                        <div class="form-group mb-3">
+                            <input type="file" name="fileImage" accept="image/*" class="form-control-file form-control">
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </div>
+						
+						<!-- Buttons for upload and cancel  -->
+						<div class="d-flex justify-content-between align-items-center mt-4">
+                        	<button type="submit" class="btn btn-secondary upload-btn">Upload image</button>
+                        
+                        	<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
+						</div>
+                    </form>
+                    <span th:if="${msg != null}" th:text="${msg}"></span>
+            </div>
+
     </div>
-</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
