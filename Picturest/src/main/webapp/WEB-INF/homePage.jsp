@@ -6,8 +6,8 @@
 
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: html_head">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Welcome Page 2</title>
 
@@ -77,10 +77,16 @@
                         <div class="col">
                         
                         <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
-                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                        <c:if test="${eachPhoto.getPhotoURL() == null}">
+                                <a href="/show/${eachPhoto.id }"><img class="img-prev" src="${eachPhoto.getPhotoImagePath() }" alt="" /></a> 
+                            </c:if>
                             
+                        <c:if test="${eachPhoto.getPhotoURL() != null}">
+                            <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                            </c:if>
                         </div>
                         </c:forEach>
+                        
                     	
                         <div class="col">
                             <img class="img-prev" src="https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg" alt="">

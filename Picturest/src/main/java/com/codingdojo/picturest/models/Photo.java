@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,8 +31,9 @@ public class Photo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
 	private String photoURL;
+	private String photoFileName;
+	
 	@NotEmpty
 	private String photoTitle;
 	@NotEmpty
@@ -168,9 +170,28 @@ public class Photo {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	public String getPhotoFileName() {
+		return photoFileName;
+	}
+
+
+	public void setPhotoFileName(String photoFileName) {
+		this.photoFileName = photoFileName;
+	}
 
     
-    
+    @Transient
+    public String getPhotoImagePath() {
+    	if (photoFileName == null || id==null) {
+    		return null;
+    	}
+    	return "/pictures/" + id + "/" + photoFileName;
+
+    }
+
+
+	
     
 
 
