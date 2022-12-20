@@ -57,10 +57,11 @@
 
 
 	<div class="container">
-		<div class="row mainbox mx-auto">
+		<div class="row mainbox mx-auto gap-5">
+			
 		
 			<!-- Left Column -->
-			<div class="col-lg-5 mb-5">
+			<div class="col col-md-5 mb-5">
 				
 				<c:if test="${logoutMessage != null}">
         			<c:out value="${logoutMessage}"></c:out>
@@ -87,14 +88,14 @@
 			</div>
 
 			<!-- (Right Column) -->
-			<div class="col-lg-7 text-center mb-5">
+			<div class="col text-center mb-5">
 				<h1 class="title-text">A community where</h1> <br>
                 <h1 class="title-text teal">you can share your picture</h1> <br>
                 <a class="btn btn-warning btn-lg signup-btn text-light" href="/registration">Sign Up</a>
 			</div>
 			
 			
-			
+		
 			
 		</div>
 	</div>

@@ -115,7 +115,7 @@
 							<!-- Buttons for the form  -->
 							<div class="d-flex justify-content-between">
 							<button class="btn btn-secondary edit-confirm-btn px-3">Save</button>
-							<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
+							<a class="btn btn-warning cancel-btn text-light px-3" href="/show/${ photo.id }">Cancel</a>
 							</div>
         					
       					</form:form>
