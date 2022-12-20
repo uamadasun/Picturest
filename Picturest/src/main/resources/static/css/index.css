@@ -102,6 +102,27 @@
   	border-radius:2rem;
 }
 
+.upload-choose{
+	margin-top: 10rem;
+}
+
+.upload-choose-icon{
+	width:8rem;
+	height:8rem;
+	cursor: pointer;
+}
+
+.upload-form {
+	border-radius:2rem;
+}
+
+.upload-btn {
+	background-color: #F38181;
+	border: none;
+	border-radius:3rem;
+}
+
+
 /* ========== Show One Picture section =============== */
 
 .img-showOne {
