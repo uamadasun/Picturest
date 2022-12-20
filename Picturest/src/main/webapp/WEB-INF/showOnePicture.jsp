@@ -135,12 +135,6 @@
       							
        							<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
        							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
-       							
-<%--        								<form action = "/delete/${eachComment.getId()}" method = "post">
-       									<input type = "hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-       									<input type = "hidden" name = "_method" method = "delete">
-       									<input type = "submit" value = "delete!" class = "button btn-sm">
-       								</form> --%>
        								
        								<form:form action = "/delete/${eachComment.getId()}" method="delete">
 									    <p class="submit">
