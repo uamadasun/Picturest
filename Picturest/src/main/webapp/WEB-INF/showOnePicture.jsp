@@ -134,42 +134,60 @@
      
        						
        						<!-- Comments from other users -->
-       						<h4 class="comment-title me-2 mb-3">Comments</h4><img class="arrow-down" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="" />
+       						<h4 class="comment-title me-2 mb-4">Comments</h4><img class="arrow-down" src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt="" />
        						
        						<!-- ========= below is where the comments should go =========  -->
-       						<p class="card-text">
+       						
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
+      							<div class="card-text d-flex gap-2 mb-4">
       							
+      							<img class="user-comment-card" src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png" alt="" />
       							
+      							<div>
       							
+      							<div class="mb-2">
       							<c:choose >
       								<c:when test = "${ editPressed == false }">
        									<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
        								</c:when>
        								<c:otherwise>
-       									<h1>Test Test Test</h1>
+       									<span class="username">
+                    						<c:out value="${eachComment.user.getFirstName()}"></c:out>:
+                						</span>
+                						<c:out value="${ eachComment.getComment()}"></c:out>
        								</c:otherwise>		
        							</c:choose>
+       							</div>
+       							
+       							<!-- Heart Icon and like comment counter and Edit Delete button -->
+       							<div class="d-flex align-items-center gap-3">
        							
        							
+       							
+       							<!--  -->
        							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
        								
        								<form:form action = "/delete/${eachComment.getId()}" method="delete">
 									    <p class="submit">
-									    	<input type="submit" value="Delete"/>
+									    	<input class="btn btn-danger del-cmt-btn" type="submit" value="Delete"/>
 									    </p>
 									</form:form>
+									
 									<form:form action = "/edit/${eachComment.getId()}" method="put">
 									    <p class="submit">
-									    	<input type="submit" value="Edit"/>
+									    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Edit"/>
 									    </p>
 									</form:form>
        								
-       							</c:if>					
-       						
+       							</c:if>	
+       							</div>
+       							
+       							</div>	
+       											
+       							</div>
        						</c:forEach>
        						
-       						</p>
+       						
        						
        						
        					

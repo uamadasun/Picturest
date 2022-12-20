@@ -102,7 +102,7 @@
   	border-radius:2rem;
 }
 
-/* Show One Picture section */
+/* ========== Show One Picture section =============== */
 
 .img-showOne {
 	border-radius: 1.2rem;
@@ -155,10 +155,44 @@
 	border-radius:3rem;
 }
 
+/* Comments Section */
+.user-comment-card {
+	width:1.8rem;
+	max-height:1.8rem;
+	/* border: 3px solid #F38181;
+	padding: 0.3rem;
+	border-radius: 50%; */
+}
+
+.username {
+	font-weight: 700;
+}
 
 
+.heart-icon {
+	width:1.2rem;
+	max-height: 1.2rem
+}
 
-/* Edit Picture Section */
+.like-comment-icons {
+	margin-top: -1rem;
+}
+
+.edit-cmt-btn {
+	border: none;
+	border-radius: 3rem;
+	background-color: #F38181;
+	font-size:0.8rem;
+}
+
+.del-cmt-btn {
+	border: none;
+	border-radius: 3rem;
+	font-size: 0.8rem;
+}
+
+
+/* ================ Edit Picture Section ================ */
 .edit-img-title {
 	color: #6c757d;
 	font-size: 2.5rem;
@@ -197,6 +231,8 @@
 }
 
 
+
+
 /* ================= SHOW ONE USER PROFILE ================= */
 
 .user-card {
@@ -212,7 +248,7 @@
 
 
 
-
+/*  */
 
 
 
