@@ -74,13 +74,7 @@ public class Users {
         return "homePage.jsp";
     }
     
-    //    ======== new image form =======
-    @GetMapping("/images/new")
-    public String newImageForm(Principal principal, Model model, @ModelAttribute("photoToAdd") Photo photoToAdd) {
-    	String email = principal.getName();
-        model.addAttribute("currentUser", userService.findByUsername(email));
-    	return "newImage.jsp";
-    }
+    
     
     //  ======== User to like a photo =======
     @GetMapping("/like/{id}")

@@ -1,5 +1,7 @@
 package com.codingdojo.picturest.controllers;
 
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -47,11 +49,25 @@ public class PhotosController {
 	private CommentService commentService;
 	
 	
+	
+	// ------------------------- NEW IMAGE FORM ------------------------- //
+	@GetMapping("/images/new")
+	public String newImageForm(Principal principal, Model model) {
+		String email = principal.getName();
+		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+		model.addAttribute("photo", new Photo());
+		return "newImage.jsp";
+	}
+	
 // ------------------------- SAVE PHOTO TO DB ------------------------- //
 	//GET IMAGE FROM FORM:FORM AND SAVE TO DB
-	@PostMapping("/add/photo")
-	private String addImageToDb(@ModelAttribute("photoToAdd") Photo photoToAdd, Principal principal) {
-		photoService.savePhotoToDb(photoToAdd);
+	@PostMapping("/images/new")
+	private String addImageToDb(@Valid @ModelAttribute("photo") Photo photo, BindingResult result, Principal principal, Model model) {		
+		if(result.hasErrors()) {
+			model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
+			return "newImage.jsp";
+		}
+		photoService.savePhotoToDb(photo);
 		return "redirect:/home";
 	}
 	

@@ -80,12 +80,17 @@
 				</div>
 				
 				<div class="col-lg-5 col-5">
-					<form:form action="/add/photo" method="POST" modelAttribute="photoToAdd">
+					<form:form action="/images/new" method="POST" modelAttribute="photo">
+						<p class="text-danger"><form:errors path = "photoTitle"/></p>
+						<p class="text-danger"><form:errors path = "photoDescription"/></p>
+						<p class="text-danger"><form:errors path = "photoURL"/></p>
+						
+						
 						<!-- Image title -->
 						<div class="mb-3">
 							<form:label path = "photoTitle" for="" class="form-label"><h3>Image Title</h3></form:label>
 							<form:input path = "photoTitle" type="text" class="form-control" />
-							<form:errors path = "photoTitle"/>
+							
 						</div>
 						<!--  -->
 						<div class="mb-3">
@@ -95,14 +100,14 @@
 						<div class="mb-3">
   							<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="form-label">Tell everyone what your image is about</form:label>
 	   						<form:textarea path = "photoDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
-   						<form:errors path = "photoDescription"/>
+   						
 						</div>
 						
 						<!-- Image URL -->
 						<div class="mb-3">
 							<form:label path = "photoURL" for="" class="form-label">Image url:</form:label>
 							<form:input path = "photoURL" type="text" class="form-control" />
-							<form:errors path = "photoURL"/>
+							
 						</div>
 						
 						<!-- Binding user to form NEED TO DOUBLE CHECK PATH -->
