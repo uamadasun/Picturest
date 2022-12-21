@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Image</title>
-<!-- Bootstrap CSS -->
+<title>Upload Photo</title>
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
@@ -20,10 +20,7 @@
 </head>
 <body>
 
-
-<!-- ============= NAVBAR SECTION ============= -->
-
-	<!-- Navbar -->
+<!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
@@ -67,75 +64,25 @@
             </div>
         </div>
     </nav>
-
-
-<!-- ============== MAIN BOX ================ -->
-
-	<div class="container">
-		
-		
-		<div class="row url-upload">
-			<div class="col-xl-6 col-md-8 shadow mx-auto p-5 card upload-form mt-4">
-			
-					<form:form action="/images/new" method="POST" modelAttribute="photo">
-						<p class="text-danger"><form:errors path = "photoTitle"/></p>
-						<p class="text-danger"><form:errors path = "photoDescription"/></p>
-						<p class="text-danger"><form:errors path = "photoURL"/></p>
-						
-						
-						<!-- Image title -->
-						<div class="mb-3">
-							<form:label path = "photoTitle" for="" class="form-label edit-img-title">Add your title</form:label>
-							<form:input path = "photoTitle" type="text" class="form-control" />
-						</div>
-						<!-- Image Owner -->
-						<div class="mb-3 d-flex gap-2 align-items-center">
-							<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
-							<p class="user-img-name username"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
-						</div>
-						<!-- Image Description -->
-						<div class="mb-3">
-  							<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="form-label edit-img-description">Tell everyone what your image is about</form:label>
-	   						<form:textarea path = "photoDescription" class="form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
-   						
-						</div>
-						
-						<!-- Image URL -->
-						<div class="mb-4">
-							<form:label path = "photoURL" for="" class="form-label">Image url:</form:label>
-							<form:input path = "photoURL" type="text" class="form-control" />
-							
-						</div>
-						
-						<!-- Binding user to form NEED TO DOUBLE CHECK PATH -->
-						<p>
-						<form:hidden path = "user" value = "${currentUser.id}"/>
-						</p>
-						<!-- Buttons for the form  -->
-						<div class="d-flex justify-content-between">
-						<button type="submit" class="btn btn-secondary upload-btn">Upload</button>
-						<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
-						</div>
-					</form:form>
+    
+    
+    
+   	<div class="row upload-choose">
+			<div class="col d-flex justify-content-center align-items-center gap-5">
+				<div class="d-flex flex-column align-items-center">
+					<a href="/upload"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/270/270236.png" alt="" /></a>
+					<p>Upload image from device</p>
+				</div>
 				
+				<h4>or</h4>
+				
+				<div class="d-flex flex-column align-items-center">
+					<a href="/images/new"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/2721/2721688.png" alt="" /></a>
+					<p>Upload image from url</p>
+				</div>
 				
 			</div>
 		</div>
-		
-		
-		<!-- ========= Choose Upload Icon ========== -->
-		
-		
-		
-		
-		
-		
-	</div>
-	
-	
-	
-	
-
 
 
 </body>
