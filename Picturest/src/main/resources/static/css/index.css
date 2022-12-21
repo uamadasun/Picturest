@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 
+*{
+	margin: 0;
+	padding: 0;
+}
+
 /* Global Text Size */
 
 .title-text{
@@ -56,6 +61,7 @@
 .loginbtn{
 	background-color: #95E1D3;
 	border: none;
+	border-radius: 3rem;
 }
 
 
@@ -71,15 +77,21 @@
 .signup-btn {
 	background-color: #F38181;
 	border: none;
+	border-radius: 3rem;
 }
 
 
 
 /* Dashboard Section */
+.main-gallery {
+	margin: 0 5rem;
+}
 
 .mainbox-dash {
-	margin-top: 5rem;
+	margin-top: 2.5rem;
 }
+
+
 
 .img-prev {
 	width: 300px;
@@ -121,6 +133,7 @@
 	border: none;
 	border-radius:3rem;
 }
+
 
 
 /* ========== Show One Picture section =============== */
@@ -207,8 +220,9 @@
 
 
 .heart-icon {
-	width:1.2rem;
-	max-height: 1.2rem
+	width:1.5rem;
+	max-height: 1.5rem;
+	margin-top:0.3rem;
 }
 
 .like-comment-icons {
@@ -227,6 +241,7 @@
 	border-radius: 3rem;
 	font-size: 0.8rem;
 }
+
 
 
 /* ================ Edit Picture Section ================ */

@@ -10,8 +10,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registration Page</title>
-
+<title>Picturest - Sign Up</title>
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -27,7 +28,7 @@
 	<!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
+            <a class="navbar-brand" href="/login"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
                     alt="logo camera image">Picturest</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,9 +46,7 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary text-light" href="#">Register</a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary text-light loginbtn px-3" href="/login">Login</a>
                     </li>
@@ -88,7 +87,7 @@
 					<form:label class="form-label" path="passwordConfirmation">Password Confirmation:</form:label>
             		<form:password class="form-control" path="passwordConfirmation"/>
 				</div>
-				<input class="btn btn-warning text-light signup-btn" type="submit" value="Register"/>
+				<input class="btn btn-secondary text-light signup-btn" type="submit" value="Register"/>
 				</form:form>
 			</div>
 		

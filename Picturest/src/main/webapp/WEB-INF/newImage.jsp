@@ -8,8 +8,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Image</title>
-<!-- Bootstrap CSS -->
+<title>Picturest - Upload url image</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/index.css">

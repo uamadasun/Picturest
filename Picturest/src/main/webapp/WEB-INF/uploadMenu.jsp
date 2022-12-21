@@ -8,7 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Upload Photo</title>
+<title>Picturest - Upload Photo</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -20,7 +22,7 @@
 </head>
 <body>
 
-<!-- Navbar -->
+	<!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
@@ -66,24 +68,37 @@
     </nav>
     
     
+    <!-- Upload Menu -->
     
-   	<div class="row upload-choose">
-			<div class="col d-flex justify-content-center align-items-center gap-5">
-				<div class="d-flex flex-column align-items-center">
-					<a href="/upload"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/270/270236.png" alt="" /></a>
-					<p>Upload image from device</p>
-				</div>
-				
-				<h4>or</h4>
-				
-				<div class="d-flex flex-column align-items-center">
-					<a href="/images/new"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/2721/2721688.png" alt="" /></a>
-					<p>Upload image from url</p>
-				</div>
-				
-			</div>
-		</div>
+    
+    
+   <div class="container">
+    	<div class="row upload-choose">
+    		<div class="col d-flex justify-content-center align-items-center gap-4">
+    		
+        		<div class="d-flex flex-column align-items-center">
+            		<a href="/upload"><img class="upload-choose-icon"
+                    	src="https://cdn-icons-png.flaticon.com/512/270/270236.png" alt="" /></a>
+            		<p>Upload image from device</p>
+        		</div>
 
+
+        		<h4>or</h4>
+
+        		<div class="d-flex flex-column align-items-center">
+            		<a href="/images/new"><img class="upload-choose-icon"
+                    src="https://cdn-icons-png.flaticon.com/512/2721/2721688.png" alt="" /></a>
+            	<p>Upload image from url</p>
+        		</div>
+
+    		</div>
+		</div>
+    </div>
+    
+    
+    
+    
+    
 
 </body>
 </html>
