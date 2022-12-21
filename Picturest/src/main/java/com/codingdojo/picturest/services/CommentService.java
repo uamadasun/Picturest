@@ -70,6 +70,13 @@ public class CommentService {
     		commentRepo.save(thisComment);
     	}
     }
+    
+// =================== EDIT A COMMENT =================== //
+    
+    public Comment editComment(Comment commentToEdit){
+    	
+    	return commentRepo.save(commentToEdit);
+    }
 
     
 }

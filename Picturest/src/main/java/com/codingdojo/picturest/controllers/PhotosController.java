@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.codingdojo.picturest.models.Comment;
 import com.codingdojo.picturest.models.Photo;
@@ -128,7 +129,7 @@ public class PhotosController {
 
 // ------------------------- SHOW ONE PHOTO ------------------------- //
 	@GetMapping("/show/{id}")
-	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal, HttpSession session) {
+	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal, HttpSession session, @ModelAttribute("commentToEdit") Comment commentToEdit) {
 		model.addAttribute("photo", photoService.showOnePhoto(photoId));
 		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
 		
@@ -140,12 +141,13 @@ public class PhotosController {
 				
 		//add the list of users who likes a comment
 		
-		//add session attribute "editPressed" (boolean switch) for edit template render
-		if(session.getAttribute("editPressed") == null ) {
-			session.setAttribute("editPressed", false);
-		}
+		//add instance of a comment for "commentToEdit" form binding
+//		Comment commentToEdit = new Comment();
+//		model.addAttribute("commentToedit", commentToEdit);
+
 
     	System.out.println(session.getAttribute("editPressed"));
+
 		return "showOnePicture.jsp";
 		
 	}
@@ -154,7 +156,7 @@ public class PhotosController {
 // ------------------------- EDIT ONE PHOTO ------------------------- //
 	// TAKE USER TO EDIT PHOTO PAGE. NEED MODEL ATTRIBUTE FOR THE FORM:FORM BIND INFORMATION
 	@GetMapping("/edit/photo/{id}")
-	private String editPhotoPage(@PathVariable("id") Long photoId, Model model, Principal principal) {
+	private String editPhotoPage(@PathVariable("id") Long photoId, Model model, Principal principal, HttpSession session) {
 		// ADD CURRENT USER TO MODEL (STOLEN FROM SHOW ONE PHOTO ROUTE)
 		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
 		// RETRIEVE PHOTO FROM DB TO DISPLAY ON EDIT PAGE USING ID FROM PATH
@@ -213,12 +215,6 @@ public class PhotosController {
 		photoService.deletePhoto(id);
 		return "redirect:/home";
 	}
-	
-	
-	
-	
-	
-	
 	
 
 }
