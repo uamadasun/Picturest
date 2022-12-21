@@ -77,8 +77,79 @@
 
             <div class=" card col-xl-6 col-md-8 shadow p-5 mx-auto mt-4 upload-form">
                 <!-- <h2>Upload Image</h2> -->
+                <form:form action="/upload" method="POST" modelAttribute="photo"  enctype="multipart/form-data">
+						<p class="text-danger"><form:errors path = "photoTitle"/></p>
+						<p class="text-danger"><form:errors path = "photoDescription"/></p>
+						<p class="text-danger"><form:errors path = "photoFileName"/></p>
+						
+						
+						<!-- Image title -->
+						<div class="form-group mb-3">
+							<form:label path = "photoTitle" for="" class="form-label edit-img-title">Add your title</form:label>
+							<form:input path = "photoTitle" type="text" class="form-control-file form-control" />
+						</div>
+
+			
+						<!-- Image Owner -->
+						<div class="mb-3 d-flex gap-2 align-items-center">
+							<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
+							<p class="user-img-name username"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
+						</div>
+						
+						<!-- Image Description -->
+						<div class="form-group mb-4">
+  							<form:label path = "photoDescription" for="exampleFormControlTextarea1" class="edit-img-description">Tell everyone what your image is about</form:label>
+	   						<form:textarea path = "photoDescription" class="form-control-file form-control" id="exampleFormControlTextarea1" rows="3"></form:textarea>
+   						
+						</div>
+						
+						
+						
+						
+						<!-- Photo File Name -->
+						<div class="form-group mb-3">
+							<form:label path = "photoFileName" for="" class="form-label">Image url:</form:label>
+							<input type = "file" name = "fileImage" accept="image/*" class="form-control-file form-control"/>
+							<form:hidden path = "photoFileName"/>
+							
+						</div>
+						
+						
+						<!-- Binding user to form NEED TO DOUBLE CHECK PATH -->
+						<p>
+						<form:hidden path = "user" value = "${currentUser.id}"/>
+						</p>
+						<!-- Buttons for the form  -->
+						<div class="d-flex justify-content-between">
+						<button type="submit" class="btn btn-secondary upload-btn">Upload</button>
+						<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
+						</div>
+					</form:form>
                 
-                    <form method="post" th:action="/upload" enctype="multipart/form-data">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    <%-- <form method="post" th:action="/upload" enctype="multipart/form-data">
 
                         <div class="form-group mb-3">
                             <label class="edit-img-title" for="imageTitle"> Image Title</label>
@@ -116,7 +187,7 @@
                         
                         	<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
 						</div>
-                    </form>
+                    </form> --%>
                     <span th:if="${msg != null}" th:text="${msg}"></span>
             </div>
 
