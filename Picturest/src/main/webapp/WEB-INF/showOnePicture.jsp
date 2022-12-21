@@ -171,25 +171,59 @@
        							
        							<!-- Heart Icon and like comment counter and Edit Delete button -->
        							<div class="d-flex align-items-center gap-3">
+       							<c:out value = "Likes: ${ eachComment.usersWhoLikeComment.size() }"></c:out>
        							
        							
        							
        							<!--  -->
-       							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
-       								
-       								<form:form action = "/delete/${eachComment.getId()}" method="delete">
-									    <p class="submit">
-									    	<input class="btn btn-danger del-cmt-btn" type="submit" value="Delete"/>
-									    </p>
-									</form:form>
-									
-									<form:form action = "/edit/${eachComment.getId()}" method="put">
-									    <p class="submit">
-									    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Edit"/>
-									    </p>
-									</form:form>
-       								
-       							</c:if>	
+       							<c:choose> 
+       							<c:when test = "${ editPressed == false }">
+	       							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
+		       								<form:form action = "/delete/${eachComment.getId()}" method="delete">
+											    <p class="submit">
+											    	<input class="btn btn-danger del-cmt-btn" type="submit" value="Delete"/>
+											    </p>
+											</form:form>
+											
+											<form:form action = "/edit/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Edit"/>
+											    </p>
+											</form:form>
+											<!-- Like a comment -->
+											<c:if test="${!eachComment.usersWhoLikeComment.contains(currentUser)}">
+											<form:form action = "/like/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Like"/>
+											    </p>
+											</form:form>
+											<!-- Dislike/Unlike a comment -->											
+											</c:if>
+											<c:if test="${eachComment.usersWhoLikeComment.contains(currentUser)}">
+											<form:form action = "/dislike/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Dislike"/>
+											    </p>
+											</form:form>
+											</c:if>
+																						
+	       							</c:if>	
+								</c:when>
+								<c:otherwise>
+								<!-- IGNORE: EDIT COMMENT IN PROGRESS -->
+		       								<form:form action = "/edit/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-danger del-cmt-btn" type="submit" value="Cancel Edit"/>
+											    </p>
+											</form:form>
+											
+											<form:form action = "/edit/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Submit Edit"/>
+											    </p>
+											</form:form>
+								</c:otherwise>
+								</c:choose>
        							</div>
        							
        							</div>	

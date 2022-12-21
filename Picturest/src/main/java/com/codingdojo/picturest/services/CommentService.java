@@ -1,6 +1,7 @@
 package com.codingdojo.picturest.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,11 +38,38 @@ public class CommentService {
     	commentRepo.deleteById(id);
     }
 
-// =================== DELETE COMMENT BY COMMENT ID =================== //
+// =================== GET PHOTO BY COMMENT ID =================== //
     public Photo getPhotoByCommentId(Long id) {
     	Comment thisComment = commentRepo.findById(id).get();
     	Photo thisPhoto = thisComment.getPhoto();
     	return thisPhoto;
     }
+ 
+ // =================== LIKE A COMMENT =================== //
+    public void likeComment(Long commentId, User thisUser) {
+    	// find comment object by comment id
+    	Optional optionalComment =  commentRepo.findById(commentId);
+    	if(optionalComment.isPresent()) {
+    		// "get" comment
+    		Comment thisComment = (Comment) optionalComment.get();
+    		// add user to to UsersWhoLikeComment list
+    		thisComment.getUsersWhoLikeComment().add(thisUser);
+    		commentRepo.save(thisComment);
+    	}	
+    }
+    
+ // =================== LIKE A COMMENT =================== //
+    public void dislikeComment(Long commentId, User thisUser) {
+    	// find comment object by comment id
+    	Optional optionalComment =  commentRepo.findById(commentId);
+    	if(optionalComment.isPresent()) {
+    		// "get" comment
+    		Comment thisComment = (Comment) optionalComment.get();
+    		// add user to to UsersWhoLikeComment list
+    		thisComment.getUsersWhoLikeComment().remove(thisUser);
+    		commentRepo.save(thisComment);
+    	}
+    }
+
     
 }

@@ -2,6 +2,8 @@ package com.codingdojo.picturest.controllers;
 
 import java.security.Principal;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +42,7 @@ public class CommentsController {
     	User thisUser = userService.findByUsername(principal.getName());
     	commentService.addComment(comment, thisPhoto, thisUser);
     	//adding "editPressed" boolean to model to be able to toggle edit form
-    	Boolean editPressed = false;
-    	model.addAttribute("editPressed", editPressed);
+
     	return "redirect:/show/{id}";
     }
     
@@ -56,26 +57,70 @@ public class CommentsController {
     	Long thisId  = thisPhoto.getId();
     	commentService.deleteComment(id);
     	//adding "editPressed" boolean to model to be able to toggle edit form
-    	Boolean editPressed = false;
-    	model.addAttribute("editPressed", editPressed);
+
     	return "redirect:/show/" + thisId;
     	
     }
     
  // ========================== EDIT A COMMENT IN PLACE ========================== //
     
-    @GetMapping("/edit/{id}")
-    public String editComment(@PathVariable("id") Long id, Model model) {
+    @PostMapping("/edit/comment/{id}")
+    public String editComment(@PathVariable("id") Long id, Model model, HttpSession session) {
     	// get comment by id so you can get the photo by so  you can then redirect to show/{id}
     	//commentService.getPhotoByCommentId(id);
     	Photo thisPhoto = commentService.getPhotoByCommentId(id);
     	Long thisId  = thisPhoto.getId();
-    	Boolean editPressed = true;
-    	model.addAttribute("editPressed", editPressed);
+    	
+//		if( (Boolean) session.getAttribute("editPressed") == false){
+//			session.setAttribute("editPressed", true);
+//		}
+//		else{
+//			session.setAttribute("editPressed", false);
+//		}	
+
+    	// flip boolean session attribute "editPressed"
+    	System.out.println(session.getAttribute("editPressed"));
     	return "redirect:/show/" + thisId;
     	
     }
     
+ // ========================== LIKE A COMMENT ========================== // 
+    @PostMapping("/like/comment/{id}")
+    public String addLikeToComment(@PathVariable("id") Long commentId, Principal principal) {
+    	// get photo object from comment id
+    	Photo thisPhoto = commentService.getPhotoByCommentId(commentId);
+    	// get photoId from photo object
+    	Long photoId = thisPhoto.getId();
+    	
+    	// get user object from principal
+    	User thisUser = userService.findByUsername(principal.getName());
+    	
+    	// pass comment id and user to add to usersWhoLikeComment
+    	commentService.likeComment(commentId, thisUser);
+    	
+    	return "redirect:/show/" + photoId;
+    }
+    
+    
+ 
+       
+ // ========================== DISLIKE A COMMENT ========================== //
+    //dislikeComment
+    @PostMapping("/dislike/comment/{id}")
+    public String dislikeComment(@PathVariable("id") Long commentId, Principal principal) {
+    	// get photo object from comment id
+    	Photo thisPhoto = commentService.getPhotoByCommentId(commentId);
+    	// get photoId from photo object
+    	Long photoId = thisPhoto.getId();
+    	
+    	// get user object from principal
+    	User thisUser = userService.findByUsername(principal.getName());
+    	
+    	// pass comment id and user to add to usersWhoLikeComment
+    	commentService.dislikeComment(commentId, thisUser);
+    	
+    	return "redirect:/show/" + photoId;
+    }
     
 
 }
