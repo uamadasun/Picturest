@@ -5,11 +5,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="header :: html_head">
+<html>
+<head>
 <meta charset="UTF-8">
-<title>Upload Form</title>
-<!-- Bootstrap CSS -->
+<title>Upload Photo</title>
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
@@ -17,12 +17,10 @@
 	<script type="text/javascript" src="/js/bootstrap.js"></script>
 	<!-- Custom JS -->
 	<script type="text/javascript" src="/js/index.js"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 </head>
 <body>
 
-
-	<!-- Navbar -->
+<!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
@@ -66,89 +64,25 @@
             </div>
         </div>
     </nav>
-
-
-
-<div class="container">
-
-    <div class="row">
-
-        
-            
-
-            <div class=" card col-xl-6 col-md-8 shadow p-5 mx-auto mt-4 upload-form">
-                <!-- <h2>Upload Image</h2> -->
-                
-                    <form method="post" th:action="/upload" enctype="multipart/form-data">
-
-                        <div class="form-group mb-3">
-                            <label class="edit-img-title" for="imageTitle"> Image Title</label>
-                            <input type="text" name="imageTitle" class="form-control-file form-control">
-                        </div>
-                        
-                        <!-- Image Owner -->
-						<div class="mb-3 d-flex gap-2 align-items-center">
-							<img class="user-img-card" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="default user image" />
-							<p class="user-img-name username"><c:out value="${currentUser.firstName} ${currentUser.lastName }"></c:out></p>
-						</div>
-                        
-                        
-                        <div class="form-group mb-4">
-                            <label for="imageDescription" class="edit-img-description"> Tell everyone what your image is about:</label>
-                            <textarea name="imageDescription" class="form-control-file form-control"
-                                rows="3"></textarea>
-                        </div>
-                        
-                        
-                        
-                        <div class="form-group mb-3">
-                            <input type="file" name="fileImage" accept="image/*" class="form-control-file form-control">
-                        </div>
-
-                        
-
-                        <div class="form-group">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                        </div>
-						
-						<!-- Buttons for upload and cancel  -->
-						<div class="d-flex justify-content-between align-items-center mt-4">
-                        	<button type="submit" class="btn btn-secondary upload-btn">Upload image</button>
-                        
-                        	<a class="btn btn-warning cancel-btn text-light px-3" href="/">Cancel</a>
-						</div>
-                    </form>
-                    <span th:if="${msg != null}" th:text="${msg}"></span>
-            </div>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+   	<div class="row upload-choose">
+			<div class="col d-flex justify-content-center align-items-center gap-5">
+				<div class="d-flex flex-column align-items-center">
+					<a href="/upload"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/270/270236.png" alt="" /></a>
+					<p>Upload image from device</p>
+				</div>
+				
+				<h4>or</h4>
+				
+				<div class="d-flex flex-column align-items-center">
+					<a href="/images/new"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/2721/2721688.png" alt="" /></a>
+					<p>Upload image from url</p>
+				</div>
+				
+			</div>
+		</div>
 
 
 </body>

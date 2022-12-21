@@ -18,7 +18,7 @@
 	<!-- Custom JS -->
 	<script type="text/javascript" src="/js/index.js"></script>
 </head>
-<body onpageshow="hiddenUploadForm()">
+<body>
 
 
 <!-- ============= NAVBAR SECTION ============= -->
@@ -40,7 +40,8 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 
                 	<li>
-                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/images/new">Add Image</a>
+                		<!-- Added a new route -->
+                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/upload/menu">Add Image</a>
                     </li>
                 	
                 	<!-- =========== dropdown nav item =============-->
@@ -51,7 +52,7 @@
           				<ul class="dropdown-menu">
           					<!-- have to change the link below for showOneUser route -->
             				<li><a class="dropdown-item" href="/show/one/user">My Profile</a></li>
-            				<li><a class="dropdown-item" href="/images/new">Add Image</a></li>
+            				<li><a class="dropdown-item" href="/upload/menu">Add Image</a></li>
             				<li><hr class="dropdown-divider"></li>
             				<li>
             					<form id="logoutForm" method="POST" action="/logout">
@@ -124,22 +125,7 @@
 		
 		<!-- ========= Choose Upload Icon ========== -->
 		
-		<div class="row upload-choose">
-			<div class="col d-flex justify-content-center align-items-center gap-5">
-				<div class="d-flex flex-column align-items-center">
-					<a href="/upload"><img class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/270/270236.png" alt="" /></a>
-					<p>Upload image from device</p>
-				</div>
-				
-				<h4>or</h4>
-				
-				<div class="d-flex flex-column align-items-center">
-					<img onclick="showUrlUpload()" class="upload-choose-icon" src="https://cdn-icons-png.flaticon.com/512/2721/2721688.png" alt="" />
-					<p>Upload image from url</p>
-				</div>
-				
-			</div>
-		</div>
+		
 		
 		
 		

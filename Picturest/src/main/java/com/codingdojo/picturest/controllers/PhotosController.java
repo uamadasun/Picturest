@@ -128,6 +128,16 @@ public class PhotosController {
     }
 	
 	
+	// ======== UPLOAD PHOTO MENU ROUTE =======
+	@GetMapping("/upload/menu")
+	public String showUploadMenu(Principal principal, Model model) {
+		String email = principal.getName();
+        model.addAttribute("currentUser", userService.findByUsername(email));
+        return "uploadMenu.jsp";
+	}
+	
+	
+	
 	// ================ UPLOAD A PHOTO =================
 		@GetMapping("/upload")
 		public String uploadPhotoForm(Principal principal, Model model) {
