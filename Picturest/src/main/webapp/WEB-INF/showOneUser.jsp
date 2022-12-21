@@ -36,7 +36,8 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 
                 	<li>
-                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/images/new">Add Image</a>
+                		<!-- Added a new route -->
+                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/upload/menu">Add Image</a>
                     </li>
                 	
                 	<!-- =========== dropdown nav item =============-->
@@ -47,7 +48,7 @@
           				<ul class="dropdown-menu">
           					<!-- have to change the link below for showOneUser route -->
             				<li><a class="dropdown-item" href="/show/one/user">My Profile</a></li>
-            				<li><a class="dropdown-item" href="/images/new">Add Image</a></li>
+            				<li><a class="dropdown-item" href="/upload/menu">Add Image</a></li>
             				<li><hr class="dropdown-divider"></li>
             				<li>
             					<form id="logoutForm" method="POST" action="/logout">
@@ -83,8 +84,16 @@
 					<c:if test="${eachPhoto.user.id .equals(currentUser.id) }">
 						<div class="col">
                         
-                        <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
-                        <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                        <!-- SHOW IMAGES -->
+                        
+                        <c:if test="${eachPhoto.getPhotoURL() == null}">
+                                <a href="/show/${eachPhoto.id }"><img class="img-prev" src="${eachPhoto.getPhotoImagePath() }" alt="" /></a> 
+                            </c:if>
+                            
+                        <c:if test="${eachPhoto.getPhotoURL() != null}">
+                            <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
+                            </c:if>
+
                             
                         </div>
 					</c:if>

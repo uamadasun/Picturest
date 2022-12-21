@@ -102,6 +102,27 @@
   	border-radius:2rem;
 }
 
+.upload-choose{
+	margin-top: 10rem;
+}
+
+.upload-choose-icon{
+	width:8rem;
+	height:8rem;
+	cursor: pointer;
+}
+
+.upload-form {
+	border-radius:2rem;
+}
+
+.upload-btn {
+	background-color: #F38181;
+	border: none;
+	border-radius:3rem;
+}
+
+
 /* ========== Show One Picture section =============== */
 
 .img-showOne {
@@ -154,6 +175,22 @@
 .edit-btn {
 	border-radius:3rem;
 }
+
+.delete-img-btn {
+	border-radius: 3rem;
+}
+
+.img-card-title{
+	font-weight: 600;
+	font-size: 2.5rem;
+}
+
+.img-card-desc {
+	font-weight: 300;
+	font-size: 1.3rem;
+}
+
+
 
 /* Comments Section */
 .user-comment-card {

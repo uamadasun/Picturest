@@ -1,6 +1,8 @@
 package com.codingdojo.picturest.controllers;
 
 import java.security.Principal;
+import java.util.Collections;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.codingdojo.picturest.models.Comment;
 import com.codingdojo.picturest.models.Photo;
 import com.codingdojo.picturest.models.User;
 import com.codingdojo.picturest.services.PhotoService;
@@ -69,18 +70,15 @@ public class Users {
         String email = principal.getName();
         model.addAttribute("currentUser", userService.findByUsername(email));
         // Adding all photos to model 
-        model.addAttribute("allPhotos", photoService.getAllPhotos());
+        List<Photo> allPhotos = photoService.getAllPhotos();
+        
+        allPhotos.sort((Photo s1, Photo s2)->s2.getUsersWhoLikePhoto().size() - s1.getUsersWhoLikePhoto().size()); 
+        model.addAttribute("allPhotos", allPhotos);
      
         return "homePage.jsp";
     }
     
-    //    ======== new image form =======
-    @GetMapping("/images/new")
-    public String newImageForm(Principal principal, Model model, @ModelAttribute("photoToAdd") Photo photoToAdd) {
-    	String email = principal.getName();
-        model.addAttribute("currentUser", userService.findByUsername(email));
-    	return "newImage.jsp";
-    }
+    
     
     //  ======== User to like a photo =======
     @GetMapping("/like/{id}")
