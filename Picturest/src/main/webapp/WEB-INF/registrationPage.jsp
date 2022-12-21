@@ -66,7 +66,7 @@
 			<div class="col-lg-5 mx-auto signup-box shadow">
 				<h1 class="">Sign up</h1>
 				
-				<p><form:errors path="user.*"/></p>
+				<p class="text-danger"><form:errors path="user.*"/></p>
 				<form:form method="POST" action="/registration" modelAttribute="user">
 				<div class="mb-3">
 					<form:label class="form-label" path="firstName">First Name:</form:label>
