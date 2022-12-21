@@ -37,7 +37,8 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
                 
                 	<li>
-                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/images/new">Add Image</a>
+                		<!-- Added a new route -->
+                    	<a class="btn btn-secondary add-img-btn text-light mt-1" href="/upload/menu">Add Image</a>
                     </li>
                 	
                 	<!-- =========== dropdown nav item =============-->
@@ -48,7 +49,7 @@
           				<ul class="dropdown-menu">
           					<!-- have to change the link below for showOneUser route -->
             				<li><a class="dropdown-item" href="/show/one/user">My Profile</a></li>
-            				<li><a class="dropdown-item" href="/images/new">Add Image</a></li>
+            				<li><a class="dropdown-item" href="/upload/menu">Add Image</a></li>
             				<li><hr class="dropdown-divider"></li>
             				<li>
             					<form id="logoutForm" method="POST" action="/logout">
