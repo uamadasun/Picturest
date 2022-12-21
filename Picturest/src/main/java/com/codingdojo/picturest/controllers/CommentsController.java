@@ -98,10 +98,15 @@ public class CommentsController {
     	// get photo id
     	Photo thisPhoto = commentService.getPhotoByCommentId(id);
     	Long thisId  = thisPhoto.getId();
+    	Comment thisComment = commentService.getCommentById(id);
+    	
+    	
     	if(result.hasErrors()) {
     		System.out.println(result.getAllErrors());
     		return "redirect:/show/" + thisId;
     	}
+    	
+    	commentToEdit.setUsersWhoLikeComment(thisComment.getUsersWhoLikeComment());
     	commentService.editComment(commentToEdit);
 
     	// Remove commentId from session

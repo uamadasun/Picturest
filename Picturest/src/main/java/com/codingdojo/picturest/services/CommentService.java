@@ -77,6 +77,19 @@ public class CommentService {
     	
     	return commentRepo.save(commentToEdit);
     }
+    
+  //
+    public Comment getCommentById(Long id) {
+    	// find comment object by comment id
+    	Optional optionalComment =  commentRepo.findById(id);
+    	if(optionalComment.isPresent()) {
+    		// "get" comment
+    		Comment thisComment = (Comment) optionalComment.get();
+    		return thisComment;
+    	}
+    	return null;
+
+    }
 
     
 }

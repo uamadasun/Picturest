@@ -154,7 +154,7 @@
        						
        						
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
-      							<div class="card-text d-flex gap-2 mb-4">
+      							<div class="card-text d-flex gap-2 mb-2">
       							
       							<img class="user-comment-card" src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png" alt="" />
       							
@@ -163,12 +163,12 @@
       							<div class="mb-1">
       							<c:choose >
       								<c:when test = "${ eachComment.getId() != commentId }">
-      								
-       									<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+      									<span class="username"><c:out value="${eachComment.user.getFirstName()}"></c:out>: </span>
+       									<c:out  value = "${ eachComment.getComment() }"></c:out>
        									
        								</c:when>
        								<c:otherwise>
-										<h5> Edit your comment: </h5>
+										<p class="username"> Edit your comment: </p>
        								</c:otherwise>		
        							</c:choose>
        							</div>
@@ -219,22 +219,7 @@
 											    </p>
 
 											</form:form>
-											<!-- Like a comment -->
-											<c:if test="${!eachComment.usersWhoLikeComment.contains(currentUser)}">
-											<form:form action = "/like/comment/${eachComment.getId()}">
-											    <p class="submit">
-											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Like"/>
-											    </p>
-											</form:form>
-											<!-- Dislike/Unlike a comment -->											
-											</c:if>
-											<c:if test="${eachComment.usersWhoLikeComment.contains(currentUser)}">
-											<form:form action = "/dislike/comment/${eachComment.getId()}">
-											    <p class="submit">
-											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Dislike"/>
-											    </p>
-											</form:form>
-											</c:if>												
+																						
 	       							</c:if>
 	       						</c:if>
 	       						
@@ -244,28 +229,36 @@
 								
 
 								<!-- IGNORE: EDIT COMMENT IN PROGRESS -->
+								<div class="d-flex justify-content-between align-items-center ms-2">
 								<c:if test = "${ eachComment.getId() == commentId  }" >
-											
+									
 											<form:form action = "/edit/comment/${eachComment.getId()}" method="post" modelAttribute="commentToEdit">
 											<input type="hidden" name="_method" value="put"/>
 											
 											<p>
-												<form:input path = "comment" type="text" value="${ eachComment.comment }"/>
+												<textarea class="form-control" name="comment" rows="3" cols="40" >${eachComment.comment }</textarea>
 												<form:errors path = "comment"/>
 											</p>
 											<p>
 												<form:input type="hidden" path="user" value="${ eachComment.user.id }"/>
-												<form:input type="hidden" path="photo" value="${ eachComment.photo.id }"/>												
+												<form:input type="hidden" path="photo" value="${ eachComment.photo.id }"/>	
+																						
 											</p>												
-											
-											    <p class="submit">
-											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Submit Edit"/>
-											    </p>
+												
+												<div class="d-flex align-items-start gap-2">
+											    	<p class="submit">
+											    		<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Submit Edit"/>
+											    	</p>
 													<!-- need cancel edit button/route - clear session! -->
- 
+ 													<a href="/cancel/edit/comment/${eachComment.getId()}" class="btn btn-secondary edit-cmt-btn"> Cancel Edit</a>
+												</div>
+												
 											</form:form>
-										<a href="/cancel/edit/comment/${eachComment.getId()}" class="btn btn-secondary edit-cmt-btn"> Cancel Edit</a> 
+											
+										
 								</c:if>
+								</div>
+								
 								
        							</div>
        							
@@ -278,7 +271,7 @@
        						
        						
        					
-      				
+      					</div>
       					
       					<!-- Comment Form -->
        					
@@ -295,7 +288,7 @@
   						
   						
   						
-    				</div>
+    				
     				
   				</div>
 			</div>
