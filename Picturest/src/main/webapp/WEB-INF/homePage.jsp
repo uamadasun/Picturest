@@ -88,35 +88,7 @@
                             <a href="/show/${ eachPhoto.id }"><img class="img-prev" src="${ eachPhoto.getPhotoURL() }" alt=""></a>
                             </c:if>
                         </div>
-                        </c:forEach>
-                        
-                    	
-                        <div class="col">
-                            <img class="img-prev" src="https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://d39l2hkdp2esp1.cloudfront.net/img/photo/170224/170224_00_2x.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://shotkit.com/wp-content/uploads/2020/07/landscapevportrait_image002.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://www.shutterstock.com/shutterstock/photos/1320880223/display_1500/stock-photo-probiotics-food-background-kimchi-beet-sauerkraut-sauerkraut-cottage-cheese-olives-bread-1320880223.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2017/09/Mt-Assiniboine.jpg?fit=750%2C575&ssl=1" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18463883.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://www.bwillcreative.com/wp-content/uploads/2020/05/portrait-orientation-zion-national-park.jpg" alt="">
-                        </div>
-                        <div class="col">
-                            <img class="img-prev" src="https://wallpapershome.com/images/pages/pic_h/12115.jpg" alt="">
-                        </div>
-                        
-                        
+                        </c:forEach>   
                     </div>
 
                 </div>

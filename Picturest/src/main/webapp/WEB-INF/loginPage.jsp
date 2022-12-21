@@ -61,7 +61,7 @@
 			<!-- Left Column -->
 			<div class="col-lg-5 mb-5">
 				<c:if test="${logoutMessage != null}">
-        			<c:out value="${logoutMessage}"></c:out>
+        			<p class="text-danger"><c:out value="${logoutMessage}"></c:out></p>
     			</c:if>
     			<h1 class="login-title">Login</h1>
     			<c:if test="${errorMessage != null}">
