@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.Date"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
@@ -150,6 +152,7 @@
        						
        						<!-- ========= below is where the comments should go =========  -->
        						
+       						
        						<c:forEach var = "eachComment" items = "${allCommentsByPhotoId}">
       							<div class="card-text d-flex gap-2 mb-4">
       							
@@ -159,14 +162,13 @@
       							
       							<div class="mb-1">
       							<c:choose >
-      								<c:when test = "${ editPressed == false }">
+      								<c:when test = "${ eachComment.getId() != commentId }">
+      								
        									<c:out  value = "${eachComment.user.getFirstName()} says: ${ eachComment.getComment() }"></c:out>
+       									
        								</c:when>
        								<c:otherwise>
-       									<span class="username">
-                    						<c:out value="${eachComment.user.getFirstName()}"></c:out>:
-                						</span>
-                						<c:out value="${ eachComment.getComment()}"></c:out>
+										<h5> Edit your comment: </h5>
        								</c:otherwise>		
        							</c:choose>
        							</div>
@@ -200,8 +202,10 @@
        							
        							
        							<!--  -->
-       							<c:choose> 
-       							<c:when test = "${ editPressed == false }">
+								<!-- (A AND !B) OR (!A AND B) -->
+								<!-- car.isDiesel() ^ car.isManual() -->	
+							<c:if test = "${ eachComment.getId() != commentId }">
+								  
 	       							<c:if test = "${ eachComment.user.getId() == currentUser.id }">
 		       								<form:form action = "/delete/${eachComment.getId()}" method="delete">
 											    <p class="submit">
@@ -209,28 +213,60 @@
 											    </p>
 											</form:form>
 											
-											<form:form action = "/edit/comment/${eachComment.getId()}">
+											<form:form action = "/edit/comment/page/${eachComment.getId()}">
 											    <p class="submit">
 											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Edit"/>
 											    </p>
-											</form:form>										
-	       							</c:if>	
-								</c:when>
-								<c:otherwise>
-								<!-- IGNORE: EDIT COMMENT IN PROGRESS -->
-		       								<form:form action = "/edit/comment/${eachComment.getId()}">
+
+											</form:form>
+											<!-- Like a comment -->
+											<c:if test="${!eachComment.usersWhoLikeComment.contains(currentUser)}">
+											<form:form action = "/like/comment/${eachComment.getId()}">
 											    <p class="submit">
-											    	<input class="btn btn-danger del-cmt-btn" type="submit" value="Cancel Edit"/>
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Like"/>
 											    </p>
 											</form:form>
+											<!-- Dislike/Unlike a comment -->											
+											</c:if>
+											<c:if test="${eachComment.usersWhoLikeComment.contains(currentUser)}">
+											<form:form action = "/dislike/comment/${eachComment.getId()}">
+											    <p class="submit">
+											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Dislike"/>
+											    </p>
+											</form:form>
+											</c:if>												
+	       							</c:if>
+	       						</c:if>
+	       						
+	       							
+	       							
+								
+								
+
+								<!-- IGNORE: EDIT COMMENT IN PROGRESS -->
+								<c:if test = "${ eachComment.getId() == commentId  }" >
 											
-											<form:form action = "/edit/comment/${eachComment.getId()}">
+											<form:form action = "/edit/comment/${eachComment.getId()}" method="post" modelAttribute="commentToEdit">
+											<input type="hidden" name="_method" value="put"/>
+											
+											<p>
+												<form:input path = "comment" type="text" value="${ eachComment.comment }"/>
+												<form:errors path = "comment"/>
+											</p>
+											<p>
+												<form:input type="hidden" path="user" value="${ eachComment.user.id }"/>
+												<form:input type="hidden" path="photo" value="${ eachComment.photo.id }"/>												
+											</p>												
+											
 											    <p class="submit">
 											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Submit Edit"/>
 											    </p>
+													<!-- need cancel edit button/route - clear session! -->
+ 
 											</form:form>
-								</c:otherwise>
-								</c:choose>
+										<a href="/cancel/edit/comment/${eachComment.getId()}" class="btn btn-secondary edit-cmt-btn"> Cancel Edit</a> 
+								</c:if>
+								
        							</div>
        							
        							</div>	
@@ -242,7 +278,7 @@
        						
        						
        					
-      					</div>
+      				
       					
       					<!-- Comment Form -->
        					
@@ -255,7 +291,7 @@
   							</form>
   						</div>
   						
-  						
+  				
   						
   						
   						
@@ -267,8 +303,6 @@
 		</div>
 
 	</div>
-
-
 
 
 
