@@ -242,6 +242,14 @@
 	font-size: 0.8rem;
 }
 
+/* Edit comment section */
+.edit-comment-box {
+	border-radius: 3rem;
+	height:4rem;
+    width:10rem;
+    word-break: break-word;
+}
+
 
 
 /* ================ Edit Picture Section ================ */
