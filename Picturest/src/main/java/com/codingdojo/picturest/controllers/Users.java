@@ -1,7 +1,6 @@
 package com.codingdojo.picturest.controllers;
 
 import java.security.Principal;
-import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codingdojo.picturest.models.Photo;
 import com.codingdojo.picturest.models.User;
@@ -33,6 +33,7 @@ public class Users {
 	@Autowired
 	private PhotoService photoService;
     
+	
 	public Users(UserService userService, UserValidator userValidator) {
         this.userService = userService;
         this.userValidator = userValidator;
@@ -44,14 +45,16 @@ public class Users {
     }
     
     @PostMapping("/registration")
-    public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+    public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, RedirectAttributes redirAttrs) {
     	userValidator.validate(user, result);
     	if (result.hasErrors()) {
             return "registrationPage.jsp";
         }
         userService.saveWithUserRole(user);
-        return "redirect:/";
+        redirAttrs.addFlashAttribute("success", "You successfully registered. Please log in!");
+        return "redirect:/login";
     }
+    
     
     @RequestMapping("/login")
     public String login(@RequestParam(value="error", required=false) String error, @RequestParam(value="logout", required=false) String logout, Model model) {
@@ -61,6 +64,7 @@ public class Users {
         if(logout != null) {
             model.addAttribute("logoutMessage", "Logout Successful!");
         }
+        
         return "loginPage.jsp";
     }
     

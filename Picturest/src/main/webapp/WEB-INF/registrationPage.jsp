@@ -7,8 +7,8 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: html_head">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration Page</title>
 
@@ -65,7 +65,6 @@
 		
 			<div class="col-lg-5 mx-auto signup-box shadow">
 				<h1 class="">Sign up</h1>
-				
 				<p class="text-danger"><form:errors path="user.*"/></p>
 				<form:form method="POST" action="/registration" modelAttribute="user">
 				<div class="mb-3">

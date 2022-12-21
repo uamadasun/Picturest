@@ -61,7 +61,11 @@
 		
 			<!-- Left Column -->
 			<div class="col-lg-5 mb-5">
-				
+			<div class="alert alert-success" role="alert" th:if="${success}">
+			   <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+			   <span th:text="${success }">You successfully registered! Please log in.</span>
+   			</div>
+
 				<c:if test="${logoutMessage != null}">
         			<c:out value="${logoutMessage}"></c:out>
     			</c:if>
