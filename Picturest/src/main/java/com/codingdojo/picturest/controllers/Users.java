@@ -51,7 +51,6 @@ public class Users {
             return "registrationPage.jsp";
         }
         userService.saveWithUserRole(user);
-        redirAttrs.addFlashAttribute("success", "You successfully registered. Please log in!");
         return "redirect:/login";
     }
     
