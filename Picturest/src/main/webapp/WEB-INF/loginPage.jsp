@@ -67,7 +67,7 @@
     			</c:if>
     			<h1 class="login-title">Login</h1>
     			<c:if test="${errorMessage != null}">
-        			<c:out value="${errorMessage}"></c:out>
+        			<p class="text-danger"><c:out value="${errorMessage}"></c:out></p>
     			</c:if>
     			<form method="POST" action="/login">
     				<div class="mb-3">
@@ -88,8 +88,8 @@
 
 			<!-- (Right Column) -->
 			<div class="col-lg-7 text-center mb-5">
-				<h1 class="title-text">A community where</h1> <br>
-                <h1 class="title-text teal">you can share your picture</h1> <br>
+				<h1 class="title-text">A community where</h1>
+                <h1 class="title-text teal">you can share your world!</h1> <br>
                 <a class="btn btn-warning btn-lg signup-btn text-light" href="/registration">Sign Up</a>
 			</div>
 			
