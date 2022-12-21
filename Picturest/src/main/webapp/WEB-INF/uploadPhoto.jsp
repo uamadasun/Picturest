@@ -8,8 +8,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="header :: html_head">
 <meta charset="UTF-8">
-<title>Upload Form</title>
-<!-- Bootstrap CSS -->
+<title>Picturest - Upload image</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/index.css">

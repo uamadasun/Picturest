@@ -9,8 +9,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="header :: html_head">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Login Page</title>
-	
+	<title>Picturest Log In</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -26,7 +27,7 @@
 	<!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
+            <a class="navbar-brand" href="/login"><img class="navbar-logo" src="https://cdn-icons-png.flaticon.com/512/7917/7917097.png"
                     alt="logo camera image">Picturest</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -44,11 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary text-light" href="#">Register</a>
                     </li> -->
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-warning text-light signup-btn" href="/registration">Sign Up</a>
+                        <a class="nav-link btn btn-warning text-light signup-btn px-3" href="/registration">Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -61,7 +60,11 @@
 		
 			<!-- Left Column -->
 			<div class="col-lg-5 mb-5">
-				
+			<div class="alert alert-success" role="alert" th:if="${success}">
+			   <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+			   <span th:text="${success }">You successfully registered! Please log in.</span>
+   			</div>
+
 				<c:if test="${logoutMessage != null}">
         			<c:out value="${logoutMessage}"></c:out>
     			</c:if>

@@ -11,7 +11,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Image Details</title>
+<title>Picturest - Image Details</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -96,7 +98,7 @@
    					 
    					 <!-- Right Side of the Card -->
     				<div class="col-md-7">
-    					<div class="d-flex justify-content-end align-items-center gap-4 ms-3">
+    					<div class="d-flex justify-content-end align-items-center gap-4 me-4">
     						<!-- Edit button -->
     						<c:if test="${photo.user.id == currentUser.id }">
 							<a href="/edit/photo/${photo.getId()}" class="btn btn-info edit-btn text-light">Edit</a>
@@ -107,8 +109,8 @@
 								</form>
 							</c:if>
 							
-      						
-      						<img class="sharebtn me-3" src="https://cdn-icons-png.flaticon.com/512/1968/1968777.png" alt="share button" />
+      						<!-- Share button - will add later in the future -->
+      						<!-- <img class="sharebtn me-3" src="https://cdn-icons-png.flaticon.com/512/1968/1968777.png" alt="share button" /> -->
       					</div>
     				
       					<div class="card-body">
@@ -126,23 +128,23 @@
        						
        						<!-- ======= Like button and counter =========== -->
        						
-       						<div class="d-flex gap-3 align-items-center mb-3">
+       					<div class="d-flex gap-3 align-items-end mb-3">
        						
-       						<!-- if user likes the photo, they will see this message instead of the like button; recommend making it a dislike button of some sort-->
-       						<c:if test="${allLikes.contains(currentUser) }">
-							<a href="/dislike/${photo.getId() }"><img class="like-btn" src="https://cdn-icons-png.flaticon.com/512/1634/1634504.png" alt="dislike button" /></a>
-							</c:if>
+       						
 							
 							<!--  if the user hasn't yet liked the photo, they will see the like button-->
 							<c:if test="${!allLikes.contains(currentUser) }">
-							<div class="d-flex align-items-end gap-3 mb-2">
-       							<a href="/like/${photo.getId() }"><img class="like-btn" src="https://cdn-icons-png.flaticon.com/512/456/456115.png" alt="" /></a> 
-       						</div>
+       							<a href="/like/${photo.getId() }"><img class="like-btn" src="https://cdn-icons-png.flaticon.com/512/880/880554.png" alt="" /></a> 
+							</c:if>
+							
+							<!-- if user likes the photo, they will see this message instead of the like button; recommend making it a dislike button of some sort-->
+       						<c:if test="${allLikes.contains(currentUser) }">
+								<a href="/dislike/${photo.getId() }"><img class="like-btn" src="https://cdn-icons-png.flaticon.com/512/880/880452.png" alt="dislike button" /></a>
 							</c:if>
 							
 							<!-- Likes counter -->
-							<p class="card-text">Likes: <c:out value="${allLikes.size() }"/></p>
-							</div>
+							<p class="card-text"><c:out value="${allLikes.size() }"/></p>
+						</div>
      
        						
        						<!-- Comments from other users -->
@@ -158,7 +160,7 @@
       							
       							<div>
       							
-      							<div class="mb-2">
+      							<div class="mb-1">
       							<c:choose >
       								<c:when test = "${ eachComment.getId() != commentId }">
       								
@@ -172,8 +174,30 @@
        							</div>
        							
        							<!-- Heart Icon and like comment counter and Edit Delete button -->
-       							<div class="d-flex align-items-center gap-3">
-       							<c:out value = "Likes: ${ eachComment.usersWhoLikeComment.size() }"></c:out>
+       							<div class="d-flex align-items-center gap-2">
+       							
+       							<!-- Likes comment button -->
+       							
+       							<!-- Like a comment -->
+									<c:if test="${!eachComment.usersWhoLikeComment.contains(currentUser)}">
+										<form:form action = "/like/comment/${eachComment.getId()}">
+											<p class="submit">
+												<input class="heart-icon" type="image" src="https://cdn-icons-png.flaticon.com/512/2589/2589197.png"/>
+											</p>
+										</form:form>
+									</c:if>	
+								<!-- Dislike/Unlike a comment -->											
+									<c:if test="${eachComment.usersWhoLikeComment.contains(currentUser)}">
+										<form:form action = "/dislike/comment/${eachComment.getId()}">
+											<p class="submit">
+												<input class="heart-icon" type="image" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png"/>
+											</p>
+										</form:form>
+									</c:if>
+       							
+       							<!-- Like counter -->
+       							<p class="me-1"><c:out value = "${ eachComment.usersWhoLikeComment.size() }"></c:out></p>
+       							
        							
        							
        							
@@ -193,6 +217,7 @@
 											    <p class="submit">
 											    	<input class="btn btn-secondary edit-cmt-btn" type="submit" value="Edit"/>
 											    </p>
+
 											</form:form>
 											<!-- Like a comment -->
 											<c:if test="${!eachComment.usersWhoLikeComment.contains(currentUser)}">
@@ -217,6 +242,7 @@
 	       							
 								
 								
+
 								<!-- IGNORE: EDIT COMMENT IN PROGRESS -->
 								<c:if test = "${ eachComment.getId() == commentId  }" >
 											

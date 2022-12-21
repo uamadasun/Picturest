@@ -9,7 +9,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="header :: html_head">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome Page 2</title>
+<title>Picturest Home</title>
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
@@ -72,10 +74,10 @@
 	
 
                 <div class="container text-center">
-                    <div class="row text-center mainbox-dash">
+                    <div class="row mainbox-dash">
                     
                     	<c:forEach var = "eachPhoto" items = "${allPhotos}">
-                        <div class="col">
+                        <div class="col px-.25">
                         
                         <!-- 12/18 UCHENNA ADDED A TAGS TO ROUTE TO SHOW ONE IMAGE ROUTE -->
                         <c:if test="${eachPhoto.getPhotoURL() == null}">

@@ -7,7 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Show One User</title>
+<title>Picturest - My Profile</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/7917/7917097.png" />
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<!-- Custom CSS -->
@@ -74,7 +76,7 @@
 			<div class="col text-center mt-3 user-card">
 				<img class="user-profile-icon mb-3" src="https://cdn-icons-png.flaticon.com/512/8731/8731440.png" alt="user profile image" />
             	<h1 class="mb-3"><c:out value="${currentUser.firstName } ${currentUser.lastName }" /></h1>
-            	<a class="btn btn-secondary add-img-btn text-light mb-5" href="/images/new">Add Image</a>
+            	<a class="btn btn-secondary add-img-btn text-light mb-5" href="/upload/menu">Add Image</a>
             	<h5>Created</h5>
             </div>
         </div>  
