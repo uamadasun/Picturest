@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.codingdojo.picturest.models.Photo;
-
-import com.codingdojo.picturest.models.User;
 import com.codingdojo.picturest.repositories.PhotoRepository;
-
 import com.codingdojo.picturest.services.CommentService;
-
 import com.codingdojo.picturest.services.PhotoService;
 import com.codingdojo.picturest.services.UserService;
 
@@ -60,7 +57,7 @@ public class PhotosController {
 
 // ------------------------- SHOW ONE PHOTO ------------------------- //
 	@GetMapping("/show/{id}")
-	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal) {
+	private String showOnePhoto(@PathVariable("id") Long photoId, Model model, Principal principal, HttpSession session) {
 		model.addAttribute("photo", photoService.showOnePhoto(photoId));
 		model.addAttribute("currentUser", userService.findByUsername(principal.getName()));
 		
@@ -69,6 +66,15 @@ public class PhotosController {
 		
 		//add all of the comments on the photo - get all comments by photoId?
 		model.addAttribute("allCommentsByPhotoId", commentService.getCommentsByPhotoId(photoId));
+				
+		//add the list of users who likes a comment
+		
+		//add session attribute "editPressed" (boolean switch) for edit template render
+		if(session.getAttribute("editPressed") == null ) {
+			session.setAttribute("editPressed", false);
+		}
+
+    	System.out.println(session.getAttribute("editPressed"));
 		return "showOnePicture.jsp";
 		
 	}
