@@ -2,24 +2,6 @@
 
 <p id="description">Picturest is a photo-based social media web application that was developed by three aspiring web developers. We were inspired to build this project because social media applications are a big part of everyone’s daily lives and sharing photos and other forms of media make up a big part of social media websites and how we connect with the world and share information. Pinterest is one of the biggest social media platform that exemplifies this and the inspiration behind Picturest's design.</p>
 
-<p> Users can also edit and delete any photo they've uploaded if they choose to. To get connected to other users, users are also able to comment on each other's photos and like each other's comments. Comments can be edited in-place, providing a seamless user experience. </p>
-
-
-<h2>Usage</h2>
-
-<h4>Registration & Login</h4>
-<p>The user experience begins on the registration page. Once a user registers, they are redirected to the login page where they can log in. We implemented Spring Security for our web app, which gave us a more secure and  customizable way of implementing authentication, authorization, validation, and protection against common attacks, such as cross-site request forgery.</p>
-<img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration"/>
-
-
-<h4>Uploading a Photo via URL</h4>
-<p>Registered users are able to view other users' photos for inspiration and also upload their own photos from URLs or from their system.</p>
-<img src="https://media.giphy.com/media/2vtrOlfV9IImcYnowe/giphy.gif" alt="upload via url"/>
-
-<h4>Uploading a Photo via file upload</h4>
-<p>When uploading a photo from the system, the name of the photo is saved to the database, while the photo's file path is used to render the photo on Picturest.</p>
-<img src="https://media.giphy.com/media/AT42jYLjS73F5vkvLG/giphy.gif" alt="file upload"/>
-
 <h2>🧐 Features</h2>
 
 Here are some of the project's best features:
@@ -43,11 +25,32 @@ Technologies used in the project:
 *   CSS 3
 *   MySQL
 
-
 <h2>:+1: Contributors: </h2>
-<p><a href="https://github.com/uamadasun"> Uchenna Amadasun</a></p>
-<p><a href="https://github.com/markubiadas"> Mark Ubiadas</a></p>
-<p><a href="https://github.com/Rthe3rd"> Alex Zuniga</a></p>
+<p>Uchenna Amadasun <a href="https://github.com/uamadasun"> GitHub</a> | <a href="https://www.linkedin.com/in/uchenna-amadasun/"> LinkedIn</a></p>
+<p>Mark Ubiadas <a href="https://github.com/markubiadas"> GitHub</a> | <a href="https://www.linkedin.com/in/mark-ubiadas/"> LinkedIn</a></p>
+<p>Alexander Zuniga <a href="https://github.com/Rthe3rd"> GitHub</a> | <a href="https://www.linkedin.com/in/alexander-zuniga-a7317534/"> LinkedIn</a></p> </p>
+
+
+
+<h2>Demo</h2>
+
+<h4>Registration & Login</h4>
+<p>The user experience begins on the registration page. Once a user registers, they are redirected to the login page where they can log in. We implemented Spring Security for our web app, which gave us a more secure and  customizable way of implementing authentication, authorization, validation, and protection against common attacks, such as cross-site request forgery.</p>
+<img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration"/>
+
+
+<h4>Uploading a Photo via URL</h4>
+<p>Registered users are able to view other users' photos for inspiration and also upload their own photos from URLs or from their system.</p>
+<img src="https://media.giphy.com/media/2vtrOlfV9IImcYnowe/giphy.gif" alt="upload via url"/>
+
+<h4>Uploading a Photo via file upload</h4>
+<p>When uploading a photo from the system, the name of the photo is saved to the database, while the photo's file path is used to render the photo on Picturest.</p>
+<img src="https://media.giphy.com/media/AT42jYLjS73F5vkvLG/giphy.gif" alt="file upload"/>
+
+<h4>Commenting on a Photo</h4>
+<p> Users can also edit and delete any photo they've uploaded if they choose to. To get connected to other users, users are also able to comment on each other's photos and like each other's comments. Comments can be edited in-place, providing a seamless user experience. </p>
+
+
 
 
 
