@@ -47,13 +47,19 @@ Technologies used in the project:
 <p>When uploading a photo from the system, the name of the photo is saved to the database, while the photo's file path is used to render the photo on Picturest.</p>
 <img src="https://media.giphy.com/media/AT42jYLjS73F5vkvLG/giphy.gif" alt="file upload"/>
 
-<h4>Commenting on a Photo</h4>
-<p> Users can also edit and delete any photo they've uploaded if they choose to. To get connected to other users, users are also able to comment on each other's photos and like each other's comments. Comments can be edited in-place, providing a seamless user experience. </p>
+<h4>Liking Photos & Commenting on a Photo</h4>
+<p>Users are also able to connect to other users by commenting on each other's photos, adding comments, and like each other's comments. Comments can be edited in-place, providing a seamless user experience.</p>
+<img src="https://gifyu.com/image/SkrBl" alt="liking photos and commenting on photos"/>
 
 
+<h4>Editing & Deleting Photos</h4>
+<p> Users can also edit and delete any photo they've uploaded. </p>
 
+<h2>:ledger: Future Features</h2>
 
-
+- [ ] Ability to add tags to photos so users can sort the photos by tags, thus viewing only photos relevant to them
+- [ ] Feature for users to be able to message other users
+- [ ] Feature for users to share photos to other social media websites
 
 
 
