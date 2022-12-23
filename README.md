@@ -2,6 +2,8 @@
 
 <p id="description">Picturest is a photo-based social media web application that was developed by three aspiring web developers. We were inspired to build this project because social media applications are a big part of everyone’s daily lives and sharing photos and other forms of media make up a big part of social media websites and how we connect with the world and share information. Pinterest is one of the biggest social media platform that exemplifies this and the inspiration behind Picturest's design.</p>
 
+<p id="description">Registered users are able to view other users' photos for inspiration and also upload their own photos from URLs or from their system. To get connected, users are also able to comment on each other's photos and like each other's comments. Comments can be edited in-place, providing a seamless user experience. When uploading a photo from the system, the name of the photo is saved to the database, while the photo's file path is used to render the photo on Picturest. Users can also edit and delete any photo they've uploaded if they choose to.</p>
+
 
 <h2>Usage</h2>
 
@@ -34,6 +36,7 @@ Technologies used in the project:
 *   bCrypt
 *   Bootstrap
 *   CSS 3
+*   MySQL
 
 
 <h2>:+1: Contributors: </h2>
