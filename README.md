@@ -1,6 +1,6 @@
 <p align="center"><img src="https://socialify.git.ci/uamadasun/Picturest/image?description=1&amp;descriptionEditable=A%20community%20where%20you%20can%20share%20your%20world!&amp;font=KoHo&amp;forks=1&amp;issues=1&amp;name=1&amp;pattern=Plus&amp;pulls=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-<p id="description">Picturest is a photo-based social media web application that was developed by three aspiring web developers. We were inspired to build this project because social media applications are a big part of everyone’s daily lives and sharing photos and other forms of media make up a big part of social media websites and how we connect with the world and share information.</p>
+<p id="description">Picturest is a photo-based social media web application that was developed by three aspiring web developers. We were inspired to build this project because social media applications are a big part of everyone’s daily lives and sharing photos and other forms of media make up a big part of social media websites and how we connect with the world and share information. Pinterest is one of the biggest social media platform that exemplifies this and the inspiration behind Picturest's design.</p>
 
 
 <h2>Usage</h2>
