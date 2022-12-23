@@ -7,11 +7,11 @@
 Here are some of the project's best features:
 
 *   Users can upload a photo from their system or from the internet
-*   Users can leave comments on photos
-*   Users can like other users' comments
 *   Users can like photos
+*   Users can leave comments on photos and like other users' comments
 *   Users can edit or delete their photos
-*   The most popular photos (based on # of likes) show up first
+*   The most popular photos (based on # of likes) get priority display on the main dashboard
+
   
 <h2>💻 Built with</h2>
 
