@@ -54,7 +54,7 @@ Technologies used in the project:
 
 <h4>Editing & Deleting Photos</h4>
 <p> Users can also edit and delete any photo they've uploaded. </p>
-<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif" alt="delete photo"/>
+<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif"  alt="delete photo"/>
 
 
 <h2>:ledger: Future Features</h2>
