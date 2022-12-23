@@ -23,8 +23,6 @@ Here are some of the project's best features:
 *   Users can like photos
 *   Users can edit or delete their photos
 *   The most popular photos (based on # of likes) show up first
-
-  
   
 <h2>💻 Built with</h2>
 
@@ -36,6 +34,12 @@ Technologies used in the project:
 *   bCrypt
 *   Bootstrap
 *   CSS 3
+
+
+<h2>:+1: Collaborators: </h2>
+<a href="https://github.com/markubiadas"> Mark Ubiadas </a>
+
+
 
 <h2>🛡️ License:</h2>
 
