@@ -37,9 +37,9 @@ Technologies used in the project:
 
 
 <h2>:+1: Contributors: </h2>
-*   <a href="https://github.com/uamadasun"> Uchenna Amadasun</a>
-*   <a href="https://github.com/markubiadas"> Mark Ubiadas</a>
-*   <a href="https://github.com/Rthe3rd"> Alex Zuniga</a>
+<p><a href="https://github.com/uamadasun"> Uchenna Amadasun</a></p>
+<p><a href="https://github.com/markubiadas"> Mark Ubiadas</a></p>
+<p><a href="https://github.com/Rthe3rd"> Alex Zuniga</a></p>
 
 
 
