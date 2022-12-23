@@ -54,8 +54,7 @@ Technologies used in the project:
 
 <h4>Editing & Deleting Photos</h4>
 <p> Users can also edit and delete any photo they've uploaded. </p>
-<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif"  alt="delete photo"/>
-
+<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif" alt="delete photo"/>
 
 <h2>:ledger: Future Features</h2>
 
@@ -63,9 +62,6 @@ Technologies used in the project:
 - [ ] Feature for users to be able to message other users
 - [ ] Feature for users to share photos to other social media websites
 
-
-
 <h2>🛡️ License:</h2>
-
 This project is licensed under the GNU General Public License v3.0
  
