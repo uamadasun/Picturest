@@ -6,8 +6,9 @@
 <h2>Usage</h2>
 
 <h4>Registration & Login</h4>
-![Login](https://github.com/uamadasun/Picturest/blob/b980ed7ba4a259ec4457b1c421b840970a26355a/reg_login.gif)
-  
+
+<img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration">
+
 <h2>🧐 Features</h2>
 
 Here are some of the project's best features:
