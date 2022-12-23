@@ -36,8 +36,13 @@ Technologies used in the project:
 *   CSS 3
 
 
-<h2>:+1: Collaborators: </h2>
-<a href="https://github.com/markubiadas"> Mark Ubiadas </a>
+<h2>:+1: Contributors: </h2>
+*   <a href="https://github.com/uamadasun"> Uchenna Amadasun</a>
+*   <a href="https://github.com/markubiadas"> Mark Ubiadas</a>
+*   <a href="https://github.com/Rthe3rd"> Alex Zuniga</a>
+
+
+
 
 
 
