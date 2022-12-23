@@ -49,7 +49,7 @@ Technologies used in the project:
 
 <h4>Liking Photos & Commenting on a Photo</h4>
 <p>Users are also able to connect to other users by commenting on each other's photos, adding comments, and like each other's comments. Comments can be edited in-place, providing a seamless user experience.</p>
-<img src="https://gifyu.com/image/SkrBl" alt="liking photos and commenting on photos"/>
+<img src="https://media.giphy.com/media/r6n1HmzkEqEIkTFy81/giphy.gif" alt="liking photos and commenting on photos"/>
 
 
 <h4>Editing & Deleting Photos</h4>
