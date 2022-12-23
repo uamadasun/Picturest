@@ -9,6 +9,9 @@
 
 <img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration"/>
 
+<h4>Uploading a Photo via URL</h4>
+<img src="https://media.giphy.com/media/2vtrOlfV9IImcYnowe/giphy.gif" alt="upload via url"/>
+
 
 <h2>🧐 Features</h2>
 
