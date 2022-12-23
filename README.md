@@ -1,5 +1,3 @@
-<h1 align="center" id="title">Picturest</h1>
-
 <p align="center"><img src="https://socialify.git.ci/uamadasun/Picturest/image?description=1&amp;descriptionEditable=A%20community%20where%20you%20can%20share%20your%20world!&amp;font=KoHo&amp;forks=1&amp;issues=1&amp;name=1&amp;pattern=Plus&amp;pulls=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
 <p id="description">Picturest is a photo-based social media web application that was developed by three aspiring web developers. We were inspired to build this project because social media applications are a big part of everyone’s daily lives and sharing photos and other forms of media make up a big part of social media websites and how we connect with the world and share information.</p>
@@ -8,7 +6,7 @@
 <h2>Usage</h2>
 
 <h4>Registration & Login</h4>
-![](reg_login.gif)
+![Login](https://github.com/uamadasun/Picturest/blob/b980ed7ba4a259ec4457b1c421b840970a26355a/reg_login.gif)
   
 <h2>🧐 Features</h2>
 
