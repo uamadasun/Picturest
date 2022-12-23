@@ -7,7 +7,8 @@
 
 <h4>Registration & Login</h4>
 
-<img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration">
+<img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration"/>
+
 
 <h2>🧐 Features</h2>
 
