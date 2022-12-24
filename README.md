@@ -34,27 +34,27 @@ Technologies used in the project:
 
 <h2>Demo</h2>
 
-<h4>Registration & Login</h4>
+<h3>Registration & Login</h3>
 <p>The user experience begins on the registration page. Once a user registers, they are redirected to the login page where they can log in. We implemented Spring Security for our web app, which gave us a more secure and  customizable way of implementing authentication, authorization, validation, and protection against common attacks, such as cross-site request forgery.</p>
 <img src="https://media.giphy.com/media/djZOrfwuqHf1lzNWJI/giphy.gif" alt="login and registration"/>
 
 
-<h4>Uploading a Photo via URL</h4>
+<h3>Uploading a Photo via URL</h3>
 <p>Registered users are able to view other users' photos for inspiration and also upload their own photos from URLs or from their system.</p>
 <img src="https://media.giphy.com/media/2vtrOlfV9IImcYnowe/giphy.gif" alt="upload via url"/>
 
-<h4>Uploading a Photo via file upload</h4>
+<h3>Uploading a Photo via file upload</h3>
 <p>When uploading a photo from the system, the name of the photo is saved to the database, while the photo's file path is used to render the photo on Picturest.</p>
 <img src="https://media.giphy.com/media/AT42jYLjS73F5vkvLG/giphy.gif" alt="file upload"/>
 
-<h4>Liking Photos & Commenting on a Photo</h4>
+<h3>Liking Photos & Commenting on a Photo</h3>
 <p>Users are also able to connect to other users by commenting on each other's photos, adding comments, and like each other's comments. Comments can be edited in-place, providing a seamless user experience.</p>
 <img src="https://media.giphy.com/media/r6n1HmzkEqEIkTFy81/giphy.gif" alt="liking photos and commenting on photos"/>
 
 
-<h4>Editing & Deleting Photos</h4>
+<h3>Editing & Deleting Photos</h3>
 <p> Users can also edit and delete any photo they've uploaded. </p>
-<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif" alt="delete photo"/>
+<img src="https://media.giphy.com/media/hHktFZAlrR3SJom8Uv/giphy.gif" alt="delete_photo"/>
 
 <h2>:ledger: Future Features</h2>
 
